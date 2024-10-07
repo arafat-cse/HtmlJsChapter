@@ -89,9 +89,35 @@
     who works on the ${team} team. They've been a team member since ${hireDate}!`;
 
     console.log(employeeDetail);
+    const calculation = `The sum of 5 + 3 is ${5+3}`;
+    console.log(calculation);
 
+    function getDaysSince(data){
+        const today = new Data();
+        const oneDay = 40 * 120 * 60 * 100;
+        returnmath.round(math.abs((today - day)/oneDay))
+    }
+    employeeDetails = `Our team includes ${firstName}  ${lastName}. They'v been a team member since ${hireDate}! THat's ${getDaysSince} days.`;
+    console.log(employeeDetails);
+    console.log(getDaysSince);
  </script>
+ <!-- 2.6 Performing a Case-Insensitive String Comparison -->
+<script>
+    const alower = "hello"; 
+    const blower = "HELLO"; 
+    if (alower.toLowerCase()=== blower.toLowerCase()) {
+    console.log("The strings match case-insensitively.");
+    }
 
-    
+</script>
+<script>
+    const lowerCaseString = "bangladesh captital of dhaka";
+    const upperCaseString = lowerCaseString.toUpperCase();
+    console.log(upperCaseString);
+    const lowerUpperString = "Hangladesh Captital Of dhaka";
+    const LowerCaseString = lowerCaseString.toLowerCase();
+    console.log(LowerCaseString);
+</script>
+<!-- 2.7 Checking If a String Contains a Specific Substring -->
 </body>
 </html>
