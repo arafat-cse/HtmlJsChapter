@@ -92,9 +92,22 @@
 
     
  
+<!-- 3.9 Manipulating Very Large Numbers with BigInt -->
+<h3>3.9 Manipulating Very Large Numbers with BigInt</h3>
+<script>
+    const maxInt = Number.MAX_SAFE_INTEGER // Probably about 9007199254740991
+    console.log("maxInt: ",maxInt + 5); // 9007199254740992 (reasonable)
+    console.log("maxInt: ",maxInt + 4); // 9007199254740992 (not a typo, this seems wrong)
+    console.log("maxInt: ",maxInt + 3); // 9007199254740994 (sure)
+    console.log("maxInt: ",maxInt + 1); // 9007199254740996 (wait, what now?)
+    // BigInts behave more reliably
+    const bigInt = BigInt(maxInt);
+    console.log("bigInt: ",bigInt + 1n); // 9007199254740992 (as before)
+    console.log("bigInt: ",bigInt + 2n); // 9007199254740993 (this is better)
+    console.log("bigInt: ",bigInt + 3n); // 9007199254740994 (still good)
+    console.log("bigInt: ",bigInt + 4n); // 9007199254740995 (excellent!)
 
-
-
+</script>
 
 
 
