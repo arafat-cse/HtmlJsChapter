@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 2</title>
+    <style>
+        .found {
+        background-color:green;
+        }
+        body {
+        margin: 15px;
+        }
+        textarea {
+        width: 300px;
+        height: 200px;
+        }
+    </style>
 </head>
 <body>
+    <!-- Back button Start -->
+    <fieldset><marquee  >Chapter 02</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
     <!-- 2.1 Checking for an Existing, Nonempty String -->
      <h2>Checking for an Existing, Nonempty String</h2>
     <script>    
@@ -119,5 +137,116 @@
     console.log(LowerCaseString);
 </script>
 <!-- 2.7 Checking If a String Contains a Specific Substring -->
+ <script>
+    const searchs = 'infinitely';
+    const fullText = 'I know not where I was born, save that the castle was' +
+    ' infinitely old and infinitely horrible.';
+    if (fullText.includes(searchs)) {
+    console.log("Search this found");
+    }else{
+        console.log("Not Found");
+    }
+
+    const search = 'AM';
+    const fullTextSearch = 'I know not where I was born, save that the castle was' +
+    ' infinitely old and infinitely horrible.';
+    if (fullTextSearch.includes(search, 20)) {
+        console.log("Found");
+    }else{
+        console.log("Not Faund"); //NOT FOUND
+    }
+
+    const NameSearch = 'ARAFAT';
+    const FullName = 'I know not where I was arafat born, save that the castle was' +
+    ' infinitely old and infinitely horrible.';
+    if (FullName.toLowerCase().includes(NameSearch.toLowerCase())) {
+        console.log(" Name Found"); //FOUND
+    }else{
+        console.log(" Name Not Found"); 
+    }
+ </script>
+
+    <!-- 2.8 Replacing All Occurrences of a String -->
+    <SCript>
+        const namestory = 'I know not where I was born, save that the castle was' +
+    ' name old and name horrible.';
+    const changedStory = namestory.replaceAll('name', 'Arafat Rahamn');
+    console.log(changedStory);
+    </SCript>
+    <!-- 2.9 Replacing HTML Tags with Named Entities -->
+     <script>
+        const originalhtml = '< p >This is a < span >paragraph or heading< /span >< /p >';
+        // Get a new string with no < characters
+        let safePieceOfHtml = originalhtml.replaceAll('<', '&alt');
+        // Get a new string with no > characters
+        safePieceOfHtml = safePieceOfHtml.replaceAll('>', '&agt');
+        console.log(safePieceOfHtml);
+     </script>
+     <!-- 2.10 Using a Regular Expression to Replace Patterns in a String -->
+      <script>
+        const original = 'this is a Regex , this is the tame';
+        const regex = /t\w{2}e/g;
+        const newstring = original.replaceAll(regex, 'place');
+        console.log(newstring);
+        // 2.11 Extracting a List from a String
+        const text = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry:' +
+        ' oranges, apples, bananas. That was the list of items.';
+        const start = text.indexOf(':');
+        const end = text.indexOf('.', start + 1);
+        const list = text.slice(start + 1, end);
+        console.log("Start: ",start);
+        console.log("End: ",end);
+        console.log("All List: ",list);
+      </script>
+      <!-- 2.12 Finding All Instances of a Patter -->
+        <script>
+            const searchString = 'Now is the time and this is the view and that is the view';
+            const regexs = /v\w*e/g;
+            const matches = searchString.matchAll(regexs);
+            for (const match of matches) {
+                console.log(`at ${match.index} we found ${match[0]}`);
+            } 
+        </script>
+        <div>
+            <h1>Finding All Instances of a Pattern</h1>
+            <form id="textsearch">
+                <h5>writing about your ideas</h5>
+            <textarea id="incoming" placeholder="writing about your ideas"> </textarea>
+            <p>
+            Search pattern: <input id="pattern" type="text" placeholder="Search word">
+            </p>
+            </form>
+            <button id="searchSubmit">Search for word</button>
+            <div id="searchResult"></div>
+        </div>
+        <script>
+            document.getElementById("searchSubmit").onclick = function() {
+            // Get the pattern
+            const pattern = document.getElementById('pattern').value;
+            const regex = new RegExp(pattern, 'g');
+            // Get the text to search
+            const searchText = document.getElementById('incoming').value
+            let highlightedResult = "<pre>";
+                let startPosition = 0;
+                let endPosition = 0;
+                // Find each match, and build the result
+                const matches = searchText.matchAll(regex);
+                for (const match of matches) {
+                endPosition = match.index;
+                // Get all of the string up to the match, and concatenate
+                highlightedResult += searchText.slice(startPosition, endPosition);
+                // Add matched text, using a CSS class for formatting
+                highlightedResult += "<span class='found'>" + match[0] + "</span>";
+                startPosition = endPosition + match[0].length;
+                }
+                // Finish off the result string
+                highlightedResult += searchText.slice(startPosition);
+                highlightedResult += "</pre>";
+                // Show the highlighted text in the page
+                document.getElementById("searchResult").innerHTML = highlightedResult;
+                }
+        </script>
+
+      
 </body>
 </html>
