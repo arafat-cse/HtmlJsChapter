@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2</title>
+</head>
+<body>
+    <!-- 2.1 Checking for an Existing, Nonempty String -->
+     <h2>Checking for an Existing, Nonempty String</h2>
+    <script>    
+        let unknownVariable = "Hello World loremdjdjdjdj "; 
+        if (typeof unknownVariable !== 'undefined' && typeof unknownVariable === 'string' && unknownVariable.trim() !== '') {
+        console.log("The variable is defined, is a string, and is not empty.");
+        } else {
+        console.log("The variable is either not defined, not a string, or is empty.");
+        }
+
+     
+
+    </script>
+    <script>
+        let undefinedVar;                    
+        let booleanVar = true;                
+        let numberVar = 22;                    
+        let bigintVar = 900719925n;     
+        let stringVar = "Lorem!";      
+        let symbolVar = Symbol("unique");      
+        let functionVar = function() {};       
+        let objectVar = { key: "value" };
+
+        console.log(typeof undefinedVar);      
+        console.log(typeof booleanVar);        
+               console.log(typeof numberVar);         
+              console.log(typeof bigintVar);         
+              console.log(typeof stringVar);         
+              console.log(typeof symbolVar);         
+              console.log(typeof functionVar);       
+                console.log(typeof objectVar);         
+    </script>
+    <script>
+        //  2.2 Converting a Numeric Value to a Formatted String
+        const someNumber = 80;
+        const someString = someNumber.toString();
+        console.log(someString); 
+        // Ask for exactly 1 decimal points. Numbers will be rounded if necessary. 
+        const someNumbers = 1242.0055;
+        const fixedString = someNumbers.toFixed(1);
+        console.log(fixedString);
+        // fixedString = '1242.0'
+        // Ask for 5 significant digits. Scientific notation is used if necessary.
+        const precisionString = someNumbers.toPrecision(5);
+        console.log(precisionString);
+        // precisionString = '1242.0'
+        // Ask for scientific notation with 5 decimal plates.
+        const scientificString = someNumbers.toExponential(5);
+        console.log(scientificString);
+        // scientificString = '1.24201e+3'
+    </script>
+    <script>
+        const FormatNumber = new Intl.NumberFormat('bn-BD', { style: 'currency', currency: 'BDT' });
+        const SomeNumbers = 1242.0005;
+        const moneyString = FormatNumber.format(SomeNumbers);
+        console.log(moneyString); // Output: "৳১,২৪২.০০"
+
+    </script>
+        <!-- 2.3 Inserting Special Characters -->
+<script>
+    const favoriteMovie = 'My favorite movie is \'The Seventh Seal\'.';
+    console.log(favoriteMovie);
+    const copyrightNotice = 'This page \u00A9 Shelley Powers.';
+    console.log(copyrightNotice);
+
+</script>
+<!-- 2.4 Inserting Emojis -->
+ <script>
+    const hamburger = 'ᙷ';
+    const hamburgerLength = hamburger.length;
+    console.log(hamburgerLength);
+ </script>
+ <!-- 2.5 Using Template Literals for Clearer String Concatenation -->
+ <script>
+   const firstName = 'Arafat';
+    const lastName = 'Rahman';
+    const team = 'Engineering';
+    const hireDate = 'January 15, 2024';
+
+    const employeeDetail = `Our team includes ${firstName} ${lastName} 
+    who works on the ${team} team. They've been a team member since ${hireDate}!`;
+
+    console.log(employeeDetail);
+
+ </script>
+
+    
+</body>
+</html>

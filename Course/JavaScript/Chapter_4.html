@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 01</title>
+</head>
+<body>
+    <!-- 1.2 Using the Developer Console in Your Browser -->
+    <h1>Log and Error Test</h1>
+<script>
+ console.log('This appears in the developer console');
+</script>
+<script>
+ // This will cause an error that appears in the console
+ const myNumber ="";
+//  Table 1-3. Console method
+
+// Console warn method
+let person = {
+    name: "Arafat",
+    age: 30,
+    job: "Developer"
+  };
+  console.warn(person);
+
+// Console error method
+  let person1 = {
+  name: "arafat",
+  age: 30,
+  job: "Developer"
+};
+console.error(person);
+// Console assert method
+let person3 = {
+  name: "arafat",
+  age: 30,
+  job: "Developer"
+};
+// Console trace method
+function firstFunction() {
+  secondFunction();
+}
+function secondFunction() {
+  thirdFunction();
+}
+function thirdFunction() {
+  console.trace('Tracking the stack trace:');
+}
+// function called firstFunction
+firstFunction();
+// Console count method
+console.count('Loop iteration');
+console.count('Loop iteration');
+console.count('Loop iteration');
+// Console dir method
+let personalName = {
+  name: "jamal",
+  age: 60,
+  job: "Developer",
+  address: {
+    street: "128 Main",
+    city: "Dhaka"
+  }
+};
+console.dir(personalName);
+
+// Console group method
+console.group('User Details');
+console.log('Name: Jamila khatun');
+console.log('Age: 20');
+console.log('Occupation: Developer');
+console.groupEnd();
+// Console time method
+console.time('My Timer');
+for (let i = 0; i < 1000000; i++) {
+}
+console.timeEnd('My Timer');
+
+// Check if the person's age is greater than 40
+console.assert(person.age > 40, person);
+
+
+  
+// 1.4 Using Strict Mode to Catch Common Mistakes
+function addRange(start, end) {
+    let sum = 0;
+    for (let i = start; i < end+1; i++) {
+    sum += i;
+    }
+    return sum;
+   }
+   // Add numbers from 10 to 15
+   let startNumber = 10;
+   let endNumber = 15;
+   console.log(addRange(startNumber,endNumber)); // Displays 75
+   // Now add numbers from 1 to 5
+   startnumber = 1;
+   endNumber = 5;
+   console.log(addRange(startNumber,endNumber)); // Displays 0, but we expect 15
+</script>
+<!-- 1.5 Filling in HTML Boilerplate with Emmet Shortcuts -->
+<input type="date" name="" id="" />
+
+</body>
+</html>

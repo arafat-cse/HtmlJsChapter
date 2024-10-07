@@ -1,0 +1,63 @@
+p {
+    color: red;
+    font-size: 28px;
+}
+    article {
+        font-size: 20px;
+ }
+.custom {
+        font-size: 1.5em;
+        margin-bottom:20px ;
+}
+.parent {
+         font-size: 15px;
+ }
+.child {
+        font-size: 2em;
+}
+ .parent {
+    font-size: 15px;
+    }
+    .child {
+    font-size: 2rem;
+}
+html {
+  
+    font-size: 62.5%;
+    } 
+.parent01 {
+    font-size: 1.5rem;
+    }
+.child01 {
+    font-size: 2.6rem;
+}
+/* 1.4 Shorthand Properties */
+/* .parent01 {
+    height: 50px;
+    border-color: rgb(25, 44, 187);
+    border-style: solid;
+    border-top-width: 5px;
+    border-right-width: 10px;
+    border-bottom-width: 15px;
+    border-left-width: 20px;
+}
+.child {
+    height: 50px;
+    border-color: rgb(21, 52, 164);
+    border-style: solid;
+    border-width: 5px 10px 15px 20px;
+} */
+.parent {
+    border-width: 5px 10px 15px;
+} 
+
+.child {
+    border-top-width: 5px;
+    border-right-width: 10px;
+    border-bottom-width: 15px;
+    border-left-width: 10px; 
+} 
+   
+         
+    
+            
