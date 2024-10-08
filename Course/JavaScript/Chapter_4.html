@@ -3,9 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 01</title>
+    <title>Chapter 4</title>
 </head>
 <body>
+    <!-- Back button Start -->
+    <fieldset><marquee  >Chapter 04</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 4.1 Getting the Current Date and Time -->
+     <h3>4.1 Getting the Current Date and Time</h3>
+      <script>
+        const today = new Date();
+        const dates = today.toDateString();
+        console.log("To Day Is Day: ",today);
+        console.log("To Day Is Day: ",dates);
+        const todays = new Date();
+        console.log("Year: ",todays.getFullYear()); // example: Year:  2024
+        console.log("Month: ",todays.getMonth()); // example: Month:  9
+        console.log("Days: ",todays.getDay()); // example: Days:  2
+        const hours = today.getHours();
+        const minutes = today.getMinutes().toString().padStart(2, '0');
+        console.log('Time ' + hours + ':' + minutes); // example: 15:32
+      </script>
+      <!-- 4.2 Converting a String to a Date -->
+       <h3>4.2 Converting a String to a Date</h3>
+        <script>
+          const stringDate = '12/30/2021';
+          // Split on the slashes
+          const dateArray = stringDate.split('/');
+          // Find the individual date ingredients
+          const year = dateArray[2];
+          const month = dateArray[0];
+          const day = dateArray[1];
+          // Apply the correction for 0-based month numbering
+          const eventDate = new Date(year, month-1, day);
+          console.log("eventDate:- ",eventDate);
+        </script>
+        <!-- 4.3 Adding Days to a Date -->
+         <h3>4.3 Adding Days to a Date</h3>
+         <script>
+          const ToDay = new Date();
+            const currentDay = ToDay.getDate();
+            // Where will be three weeks in the future?
+            ToDay.setDate(currentDay + 21);
+            console.log(`Three weeks from today is ${ToDay}`);
+         </script>
+         <!-- 4.4 Comparing Dates and Testing Dates for Equality -->
+         <h3>4.4 Comparing Dates and Testing Dates for Equality</h3>
+         <script>
+          const oldDay = new Date(2000, 10, 20);
+          const newerDay = new Date(2024, 1, 1);
+          if (newerDay > oldDay) {
+          console.log("newerDay");
+          }else{
+            console.log("Not newerDay");
+          }
+         </script>
+         <!-- 4.5 Calculating the Time Elapsed Between Two Dates -->
+         <h3>4.5 Calculating the Time Elapsed Between Two Dates</h3>
+         <script>
+          const oldDate = new Date(2021, 1, 1);
+          const newerDate = new Date(2021, 10, 1);
+          const differenceInMilliseconds = newerDate - oldDate;
+          console.log("Date: ",differenceInMilliseconds);
+         </script>
+         <!-- 4.6 Formatting a Date Value as a String -->
+          <h3>4.6 Formatting a Date Value as a String</h3>
+      <script>
+          const date = new Date(2024, 0, 1, 10, 30);
+          let dateString = date.toString();
+          // 'Fri Jan 01 2021 10:30:00 GMT-0500 (Eastern Standard Time)'
+          let datetimeString = date.toTimeString();
+          // '10:30:00 GMT-0500 (Eastern Standard Time)'
+          let datetcsString = date.toUTCString();
+          // 'Fri, 01 Jan 2021 15:30:00 GMT'
+          let todatesString = date.toDateString();
+          // 'Fri Jan 01 2021'
+          let dateisosString = date.toISOString();
+          // '2021-01-01T15:30:00.000Z'
+          let localdatesString = date.toLocaledateString;
+          // '1/1/2021, 10:30:00 AM'
+          let tolocaltimedateString = date.toLocaleTimeString();
+          // '10:30:00 AM'
+          console.log(dateString);
+          console.log(datetimeString);
+          console.log(datetcsString);
+          console.log(todatesString);
+          console.log(dateisosString);
+          console.log(localdatesString);
+          console.log(tolocaltimedateString);
+          
+            const formatter = new Intl.DateTimeFormat('de-DE',
+            { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            const datesString = formatter.format(date);
+            console.log("datesString: ",datesString);
+      </script>
 
 
 </body>
