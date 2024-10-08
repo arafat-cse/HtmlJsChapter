@@ -213,7 +213,7 @@ h2{
    animation-iteration-count: infinite;
    animation-direction: alternate;
  }
-/* profile image contant */
+/* About profile image contant css start */
 .profile-card {
   display: flex;
   flex-direction: row;
@@ -306,8 +306,8 @@ h4 {
   background-color: #333;
   color: #fff;
 }
-
-.row a {
+/* About profile image contant css end */
+/* .row a {
 	margin: 0 auto;
 }
 a button{
@@ -382,7 +382,7 @@ button:hover {
 }
 .tbtn button:hover {
     background-color: #218838;
-}
+} */
 
 /* footer */
 .main-footer {
@@ -442,21 +442,7 @@ button:hover {
 }
 
 
-/* .htmlcap{
-	width: 100%;
-	
-}
-.htmlcap .manuhtml5{
-
-	height: 500px;
-	display: inline;
-	
-}
-.htmlcap .manuhtml5 li a{
-	
-	text-decoration: none;	
-} */
-/* html course css */
+/* Chapter show css start */
 .hz_menu{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
@@ -494,3 +480,4 @@ button:hover {
   background-color: #e0e0e0; 
   color: #007BFF; 
 }
+/* Chapter show css End */

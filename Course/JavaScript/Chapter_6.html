@@ -3,110 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 5</title>
+    <title>Chapter 6</title>
 </head>
-<body>
+<body> 
     <!-- Back button Start -->
-    <fieldset><marquee  >Chapter 05</marquee></fieldset>
+    <fieldset><marquee  >Chapter 06</marquee></fieldset>
     <div>
         <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
     </div>
     <!-- Back button End -->
-    <!-- 5.1 Checking If an Object Is an Array -->
-   <h3>5.1 Checking If an Object Is an Array</h3>
-   <script>
-    const Names = ['Firefox', 'Edge', 'Chrome', 'IE', 'Safari'];
-    if (Array.isArray(Names)) {
-    console.log("Array: ",Names);
-    }
-   </script>
-   <!-- 5.2 Iterating Over All the Elements in an Array -->
-<h3>5.2 Iterating Over All the Elements in an Array</h3>
+    <!-- 6.1 Passing a Function as an Argument to Another Function -->
+<h3>6.1 Passing a Function as an Argument to Another
+    Function</h3>
+    <script>
+        function fun_inner(value) {
+            return 'Passing a Function as an Argument to Another Function';
+        }
+        function fun_outer(func) {
+            console.log("Argument to Another Function: ",fun_inner());
+        }
+        fun_outer(fun_inner);
+    </script>
+    <!-- 6.2 Using Arrow Functions -->
+<h3>6.2 Using Arrow Functions
+</h3>
+    <script>
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        function squareNumber(number) {
+            return number ** 2;
+        }
+        const squares = numbers.map(squareNumber);
+        console.log("Arrow Functions: ",squares);
+    </script>
+    <!-- 6.3 Providing a Default Parameter Value -->
+<h3>6.3 Providing a Default Parameter Value
+</h3>
 <script>
-    const animals = ['elephant', 'tiger', 'lion', 'zebra', 'cat', 'dog', 'rabbit'];
-    for (const animal of animals) {
-        console.log("AnimalType: ",animal);
+    function addNumbers(firstNum, secondNum, thirdNum = 0) {
+        return firstNum + secondNum + thirdNum;
     }
-    
-    for (let i = 0; i < animals.length; ++i) {
-    console.log("Type: ",animals[i]);
-    }
-//     Change every array element map() Recipe 5.17
-// See if all elements meet a specic condition every() Recipe 5.19
-// See if at least one element meets a specic condition some() Recipe 5.19
-// Find array elements matching your criteria filter() Recipe 5.9
-// Reorder an array sort() Recipe 5.16
-// Use all the values of an array in one calculation reduce() Recipe 5.18
+    console.log("addNumbers: ",addNumbers(42, 6, 10));  
+    console.log("addNumbers: ",addNumbers(42, 6));
 </script>
-<!-- 5.3 Checking If Two Arrays Are Equal -->
-<h3>5.3 Checking If Two Arrays Are Equal</h3>
+<!-- 6.4 Creating a Function That Accepts Unlimited Arguments -->
+<h3>6.4 Creating a Function That Accepts Unlimited
+    Arguments</h3>
+    <script>
+        function sumRounds(...numbers) {
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i += 1) {
+                sum += Math.round(numbers[i]);
+            }
+            return sum;
+        }
+            console.log("Accepts Unlimited Arguments: ",sumRounds(2.3, 4, 5, 16, 18.1));  // 45
+    </script>
+<!-- 6.5 Using Named Function Parameters -->
+<h3>6.5 Using Named Function Parameters
+</h3>
+
+<!-- 6.6 Creating a Function That Stores its State with a Closure -->
+<h3>6.6 Creating a Function That Stores its State
+    with a Closure</h3>
+    <script>
+        function greetingMaker(greeting) {
+            function addName(name) {
+                return `${greeting} ${name}`;
+            }
+            return addName;
+        }
+        // Use the outer function to create two copies of the inner function,
+        // each with a different value for greeting
+        const daytimeGreeting = greetingMaker('Good Day to you');
+        const nightGreeting = greetingMaker('Good Evening');
+        console.log(daytimeGreeting('Peter'));   // Shows 'Good Day to you Peter'
+        console.log(nightGreeting('Sally'))// Shows 'Good Evening Sally'    
+    </script>
 <script>
-    const fruitNamesA = ['apple', 'kumquat', 'grapefruit', 'kiwi'];
-    const fruitNamesB = ['apple', 'kumquat', 'grapefruit', 'kiwi'];
-    const fruitNamesC = ['avocado', 'squash', 'red pepper', 'cucumber'];
-    console.log(areArraysEqual(fruitNamesA, fruitNamesB)); // true
-    console.log(areArraysEqual(fruitNamesA, fruitNamesC)); // false
-    function areArraysEqual(arrayA, arrayB) {
-    if (!Array.isArray(arrayA) || !Array.isArray(arrayB)) {
-    // These objects are null, undeclared, or non-array objects
-        return false;
+    function createCounter() {
+        // This variable persists as long as the createCounter function reference
+        let count = 0;
+        function counter() {
+            count += 1;
+            console.log("Count Number: ",count);
+        }
+        return counter;
     }
-    else if (arrayA === arrayB) {
-    // Shortcut: they're two references pointing to the same array
-    return true;
-    }
-    else if (arrayA.length !== arrayB.length) {
-    // They can't match if they have a different item count
-    return false;
-    }
-    else {
-    // Time to look closer at each item
-    for (let i = 0; i < arrayA.length; ++i) {
-    // We require items to have the same content and be the same type,
-    // but you could use loosely typed equality depending on your task
-    if (arrayA[i] !== arrayB[i]) return false;
-    }
-    return true;
-    }
-    }
+    const counterFunction = createCounter();
+    counterFunction();  // displays 1
+    counterFunction();  // displays 2
+    counterFunction();  // displays     
 </script>
-<!-- 5.4 Breaking Down an Array into Separate Variables -->
-<h3>5.4 Breaking Down an Array into Separate Variables</h3>
-<script>
-    const stateValues = [254, 58, 36, 36, 0, 14];
-    const [arizona, missouri, idaho, nebraska, texas, minnesota] = stateValues;
-    console.log(missouri); // 58
-</script>
-<!-- 5.5 Passing an Array to a Function That Expects a List of Values -->
-<h3>5.5 Passing an Array to a Function That Expects a List of Values</h3>
-<script>
-    const numbers = [8, 42, 5, 304, 1, 13];
-    // This syntax is not allowed. The result is NaN.
-    const maximumFail = Math.max(numbers);
-    // But this works, thanks to the spread operator. (The answer is 304.)
-    const maximum = Math.max(...numbers);
-    console.log(maximumFail);
-    console.log("Max Number: ",maximum);
-</script>
-<!-- 5.6 Cloning an Array -->
-<h3>5.6 Cloning an Array</h3>
-<script>
-    const number = [5, 42, 58, 304, 1, 13];
-    const numbersCopy = [...number];
-    console.log("Cloning an Array: ",numbersCopy);
-   //use slice method
-    const numberCopy = number.slice();
-    console.log("Cloning an Array: ",numberCopy);
-    const objectsOriginal = [{name: 'Arafat', age: 25}, {name: 'Patrick', age: 23}];
-    const objectsCopy = [...objectsOriginal];
-    console.log(objectsCopy);
-    // Change one of the people objects in objectsCopy
-    objectsCopy[0].age = 25;
-    // Investigate the same object in objectsOriginal
-    console.log("Age: ",objectsOriginal[0].age); // 25
-</script>
-<!-- 5.7 Merging Two Arrays -->
-<h3>5.7 Merging Two Arrays</h3>
+<!-- 6.7 Creating a Generator Function That Yields Multiple Values -->
+<h3>6.7 Creating a Generator Function That Yields
+    Multiple Values</h3>
+   
+
 
 
 
