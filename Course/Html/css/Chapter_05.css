@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px; */
+    padding: 20px; 
 }
 
 /* Main container for the form */
@@ -120,11 +120,8 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-/* 
+
 /* Hover effect for the submit button */
 button[type="submit"]:hover {
     background-color: #218838;
 }
-
-
-
