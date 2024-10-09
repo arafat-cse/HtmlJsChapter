@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 4</title>
+    <link rel="stylesheet" href="jsStyle.css">
 </head>
 <body>
     <!-- Back button Start -->
@@ -11,7 +12,8 @@
     <div>
         <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
     </div>
-    <!-- Back button End -->
+    <button class="Outbtn">Output Console</button>
+     <!-- Back button End -->
     <!-- 4.1 Getting the Current Date and Time -->
      <h3>4.1 Getting the Current Date and Time</h3>
       <script>
@@ -94,13 +96,10 @@
           console.log(dateisosString);
           console.log(localdatesString);
           console.log(tolocaltimedateString);
-          
             const formatter = new Intl.DateTimeFormat('de-DE',
             { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
             const datesString = formatter.format(date);
             console.log("datesString: ",datesString);
       </script>
-
-
 </body>
 </html>
