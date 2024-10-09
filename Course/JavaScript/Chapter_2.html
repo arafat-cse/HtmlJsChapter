@@ -33,9 +33,6 @@
         } else {
         console.log("The variable is either not defined, not a string, or is empty.");
         }
-
-     
-
     </script>
     <script>
         let undefinedVar;                    
@@ -56,6 +53,7 @@
               console.log(typeof functionVar);       
                 console.log(typeof objectVar);         
     </script>
+    <h3>2.2 Converting a Numeric Value to a Formatted String</h3>
     <script>
         //  2.2 Converting a Numeric Value to a Formatted String
         const someNumber = 80;
@@ -83,6 +81,7 @@
 
     </script>
         <!-- 2.3 Inserting Special Characters -->
+         <h3>2.3 Inserting Special Characters</h3>
 <script>
     const favoriteMovie = 'My favorite movie is \'The Seventh Seal\'.';
     console.log(favoriteMovie);
@@ -90,12 +89,14 @@
     console.log(copyrightNotice);
 
 </script>
+<h3>2.4 Inserting Emojis</h3>
 <!-- 2.4 Inserting Emojis -->
  <script>
     const hamburger = 'ᙷ';
     const hamburgerLength = hamburger.length;
     console.log(hamburgerLength);
  </script>
+ <h3>2.5 Using Template Literals for Clearer String Concatenation</h3>
  <!-- 2.5 Using Template Literals for Clearer String Concatenation -->
  <script>
    const firstName = 'Arafat';
@@ -119,6 +120,7 @@
     console.log(employeeDetails);
     console.log(getDaysSince);
  </script>
+ <h3>2.6 Performing a Case-Insensitive String Comparison</h3>
  <!-- 2.6 Performing a Case-Insensitive String Comparison -->
 <script>
     const alower = "hello"; 
@@ -137,6 +139,7 @@
     console.log(LowerCaseString);
 </script>
 <!-- 2.7 Checking If a String Contains a Specific Substring -->
+ <h3>2.7 Checking If a String Contains a Specific Substring</h3>
  <script>
     const searchs = 'infinitely';
     const fullText = 'I know not where I was born, save that the castle was' +
@@ -165,7 +168,7 @@
         console.log(" Name Not Found"); 
     }
  </script>
-
+    <h3>2.8 Replacing All Occurrences of a String</h3>
     <!-- 2.8 Replacing All Occurrences of a String -->
     <SCript>
         const namestory = 'I know not where I was born, save that the castle was' +
@@ -174,6 +177,7 @@
     console.log(changedStory);
     </SCript>
     <!-- 2.9 Replacing HTML Tags with Named Entities -->
+     <h3>2.9 Replacing HTML Tags with Named Entities</h3>
      <script>
         const originalhtml = '< p >This is a < span >paragraph or heading< /span >< /p >';
         // Get a new string with no < characters
@@ -183,6 +187,7 @@
         console.log(safePieceOfHtml);
      </script>
      <!-- 2.10 Using a Regular Expression to Replace Patterns in a String -->
+      <h3>2.10 Using a Regular Expression to Replace Patterns in a String</h3>
       <script>
         const original = 'this is a Regex , this is the tame';
         const regex = /t\w{2}e/g;
@@ -199,6 +204,8 @@
         console.log("All List: ",list);
       </script>
       <!-- 2.12 Finding All Instances of a Patter -->
+       <h3>2.12 Finding All Instances of a Patter</h3>
+       
         <script>
             const searchString = 'Now is the time and this is the view and that is the view';
             const regexs = /v\w*e/g;
@@ -246,7 +253,5 @@
                 document.getElementById("searchResult").innerHTML = highlightedResult;
                 }
         </script>
-
-      
 </body>
 </html>
