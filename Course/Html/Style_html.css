@@ -59,10 +59,14 @@ button {
 button:hover {
     background-color: #218838;
 }
+/* Chapter 01  Start */
 .chapter1{
  background-color: aqua;
- 
 }
+.container{
+  padding-left: 20px;
+}
+/* Chapter 01 css End */
 /* Chapter Menu */
 .hz_menu{
     display: grid;
