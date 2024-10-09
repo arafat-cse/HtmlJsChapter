@@ -9,7 +9,27 @@
       width: 1250px;
       margin: 0 auto;
 }
-/* All button css Start */
+/* output button css Start */
+.Outbtn{
+    color: white;
+    background-color: black;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-size: 29px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.Outbtn:hover{
+    color: white;
+    background-color: black;
+    padding: 20px 20px;
+    border-radius: 10px;
+    font-size:60px;
+    text-align: center;
+    box-sizing: border-box;
+}
+/* output button css End */
+/* All button Start */
 button{
     color: white;
     background-color: black;
@@ -19,13 +39,4 @@ button{
     text-align: center;
     box-sizing: border-box;
 }
-button:hover{
-    color: white;
-    background-color: black;
-    padding: 20px 20px;
-    border-radius: 10px;
-    font-size:60px;
-    text-align: center;
-    box-sizing: border-box;
-}
-/* All button css End */
+/* All button end */
