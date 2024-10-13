@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12</title>
+    <link rel="stylesheet" href="jsStyle.css">
+</head>
+<body> 
+    <!-- Back button Start -->
+    <fieldset><marquee  >Chapter 12</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 12.1 Accessing a Given Element and Finding Its Parent and Child Elements -->
+     <h3>12.1 Accessing a Given Element and Finding Its Parent and Child Elements</h3>
+     <div id="demodiv" class="demo">
+        <p>Some text</p>
+        <p>Some more text</p>
+      </div>
+      
+      <script>
+        // Access the element with id "demodiv"
+        const demodiv = document.getElementById("demodiv");
+        
+        // Find the parent node of "demodiv"
+        const parent = demodiv.parentNode;
+        
+        // Get the type of the parent node
+        const parentType = parent.nodeName;
+        console.log(`Parent Node Type: ${parentType}`);
+        
+        // Check if "demodiv" has child nodes and list them
+        let outputString = '';
+        if (demodiv.hasChildNodes()) {
+          const children = demodiv.childNodes;
+          
+          // Iterate through the child nodes and append their type to the output string
+          children.forEach(child => {
+            outputString += `Has child: ${child.nodeName}\n`;
+          });
+        }
+        
+        // Output the child node information
+        console.log(outputString);
+      </script>
+      <!-- 12.2 Traversing the Results from querySelectorAll() with forEach() -->
+       <h3>12.2 Traversing the Results from querySelectorAll() with forEach()</h3>
+       <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+      
+      <script>
+        // Use querySelectorAll to find all list items (li) on a page
+        const listItems = document.querySelectorAll('li');
+        
+        // Use forEach to loop through the NodeList
+        listItems.forEach(listItem => {
+          console.log(listItem.firstChild.data);
+        });
+        
+        // Polyfill for older browsers like IE that don't support forEach on NodeList
+        if (window.NodeList && !NodeList.prototype.forEach) {
+          NodeList.prototype.forEach = function(callback, thisArg) {
+            thisArg = thisArg || window;
+            for (let i = 0; i < this.length; i++) {
+              callback.call(thisArg, this[i], i, this);
+            }
+          };
+        }
+      </script>
+      <!-- 12.3 Adding Click Functionality to an Element -->
+        <h3>12.3 Adding Click Functionality to an Element</h3>
+        <button id="custom-button">Click me</button>
+        <button><a style="background-color:navy; color: white; text-decoration: none;" href="#" id="custom-link">Click this link</a></button>
+        <div tabindex="0" role="button" id="custom-div">Click this div</div>
+
+<script>
+    // Define an event handler function for button click
+    const handleButtonClick = (event) => {
+        window.alert('The button has been clicked!');
+    };
+    
+    // Select the button element
+    const customButton = document.getElementById('custom-button');
+    
+    // Add the click event listener to the button and call 'handleButtonClick' function
+    customButton.addEventListener('click', handleButtonClick);
+
+    // Define an event handler function for link click
+    const handleLinkClick = (event) => {
+        event.preventDefault();  // Prevents the default behavior of the link
+        window.alert(`The ${event.currentTarget.nodeName} element has been clicked!`);
+    };
+    
+    // Select the link element
+    const customLink = document.getElementById('custom-link');
+    
+    // Add the click event listener to the link and call 'handleLinkClick' function
+    customLink.addEventListener('click', handleLinkClick);
+
+    // Define an event handler function for div click
+    const handleDivClick = (event) => {
+        window.alert(`The ${event.currentTarget.nodeName} element has been clicked!`);
+    };
+
+    // Select the div element
+    const customDiv = document.getElementById('custom-div');
+    
+    // Add the click event listener to the div
+    customDiv.addEventListener('click', handleDivClick);
+
+    // Add a keydown event listener for the div to make it keyboard navigable
+    customDiv.addEventListener('keydown', (event) => {
+        if (event.code === 'Space' || event.code === 'Enter') {
+        customDiv.click();  // Trigger the click event when Space or Enter is pressed
+        }
+    });
+</script>
+<!-- 12.4 Finding All Elements That Share an Attribute -->
+    <h3>12.4 Finding All Elements That Share an Attribute</h3>
+    <div class="red">Red Color first</div>
+    <div class="blue">Blue Color first</div>
+    <p class="red">Red Paragraph</p>
+    <span class="green">Green Span</span>
+    <div class="red">Red Color Second</div>
+    <div class="blue">Blue Color Second</div>
+
+<script>
+  // Select all elements that have the "class" attribute, regardless of its value
+  const allWithClass = document.querySelectorAll('*[class]');
+  console.log('All elements with a class attribute:');
+  allWithClass.forEach(elem => {
+    console.log(elem.tagName, 'with class:', elem.className);
+  });
+
+  // Select all elements that have the class attribute value "red"
+  const allRedElements = document.querySelectorAll('*[class="red"]');
+  console.log('\nElements with class="red":');
+  allRedElements.forEach(elem => {
+    console.log(elem.tagName, 'with class:', elem.className);
+  });
+
+  // Select all div elements that don't have the "red" class
+  const notRedDivs = document.querySelectorAll('div:not(.red)');
+  console.log('\nDiv elements without the "red" class:');
+  notRedDivs.forEach(elem => {
+    console.log(elem.tagName, 'with class:', elem.className);
+  });
+</script>
+<!-- 12.5 Accessing All Elements of a Specific Type -->
+ <h3>12.5 Accessing All Elements of a Specific Type</h3>
+ <p><img src="../../images/tec1.jpg" alt="First image description"></p>
+ <p><img src="../../images/tec2.jpg" alt="Second image description"></p>
+ <p><img src="../../images/tec3.jpg" alt="Third image description"></p>
+
+ <script>
+   // Select all img elements using getElementsByTagName
+   const imageElements = document.getElementsByTagName('img');
+   
+   // Log the initial count of img elements in the document
+   console.log('Initial number of images:', imageElements.length);
+   
+   // Create a new paragraph element
+   const newParagraph = document.createElement('p');
+   
+   // Create a new img element
+   const newImage = document.createElement('img');
+   newImage.src = './img/newimage.jpg';  // Add a source to the new img element
+   newImage.alt = 'New image description'; // Add an alt attribute for accessibility
+   
+   // Append the new image inside the newly created paragraph
+   newParagraph.appendChild(newImage);
+   
+   // Select all paragraph elements to find a parent element
+   const allParagraphs = document.getElementsByTagName('p');
+   
+   // Append the new paragraph to the same parent as the first paragraph in the document
+   allParagraphs[0].parentNode.appendChild(newParagraph);
+   
+   // Log the updated count of img elements in the document
+   console.log('Updated number of images:', imageElements.length);
+ </script>
+<!-- 12.6 Discovering Child Elements Using the Selectors API -->
+ <h3>12.6 Discovering Child Elements Using the Selectors API</h3>
+ <article>
+    <div>
+      <img src="../../images/Bannar.png" alt="Image 1">
+    </div>
+    <img src="../../images/banner.jpg" alt="Image 2">
+  </article>
+  
+  <article>
+    <img src="../../images/backimage.png" alt="Image 3">
+  </article>
+  
+  <script>
+    // Select all img elements that are descendants of article elements
+    const allImgElements = document.querySelectorAll('article img');
+    
+    // Logging the total number of img elements found inside article elements
+    console.log(`Total img elements inside article: ${allImgElements.length}`);
+    
+    // Loop through each img element and log its src attribute
+    allImgElements.forEach((imgElement, index) => {
+      console.log(`Image ${index + 1}: ${imgElement.src}`);
+    });
+  
+    // Select all img elements that are direct children of article elements
+    const directChildImages = document.querySelectorAll('article > img');
+    console.log(`Total direct child img elements inside article: ${directChildImages.length}`);
+  
+    // Select all img elements that have an empty alt attribute
+    const imagesWithEmptyAlt = document.querySelectorAll('img[alt=""]');
+    console.log(`Total img elements with empty alt attribute: ${imagesWithEmptyAlt.length}`);
+  
+    // Select all img elements that have a non-empty alt attribute
+    const imagesWithNonEmptyAlt = document.querySelectorAll('img:not([alt=""])');
+    console.log(`Total img elements with non-empty alt attribute: ${imagesWithNonEmptyAlt.length}`);
+  </script>
+<!-- 12.8 Setting an Element’s Style Attribute -->
+ <h3>12.8 Setting an Elements Style Attribute</h3>
+<!-- 12.9 Adding Text to a New Paragraph -->
+<h3>12.9 Adding Text to a New Paragraph</h3>
+<div id="contentContainer">
+    <p>
+      There is a language 'little known,'<br />
+      Lovers claim it as their own.
+    </p>
+    <p>
+      Its symbols smile upon the land, <br />
+      Wrought by nature's wondrous hand;
+    </p>
+    <p>
+      And in their silent beauty speak,<br />
+      Of life and joy, to those who seek.
+    </p>
+    <p>
+      For Love Divine and sunny hours <br />
+      In the language of the flowers.
+    </p>
+  </div>
+  
+  <script>
+    // Access the div element by its ID
+    const contentDiv = document.getElementById('contentContainer');
+    
+    // Prompt the user to enter the new paragraph text
+    const userInputText = prompt('Enter new paragraph text', '');
+    
+    // Access the first paragraph inside the div
+    const firstParagraph = contentDiv.getElementsByTagName('p')[0];
+    
+    // Create a new text node using the user's input
+    const newTextNode = document.createTextNode(userInputText);
+    
+    // Create a new paragraph element
+    const newParagraphs = document.createElement('p');
+    
+    // Append the text node to the new paragraph
+    newParagraphs.appendChild(newTextNode);
+    
+    // Insert the new paragraph before the first paragraph in the content container
+    contentDiv.insertBefore(newParagraphs, firstParagraph);
+  </script>
+</body>
+</html>

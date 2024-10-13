@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 9</title>
+    <link rel="stylesheet" href="jsStyle.css">
+</head>
+<body> 
+    <!-- Back button Start -->
+    <fieldset><marquee  >Chapter 09</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 9.1 Updating the Page During a Loop -->
+    <h3>9.1 Updating the Page During a Loop</h3>  
+
+    <div>
+        <h1>Chunked Task Execution Demo</h1>
+        <p id="outputStatus">Status will appear here...</p>
+        <button type="button" onclick="InChunks()">Start Task</button>
+    </div>
+    <script>
+        function InChunks() {
+          // Get the <p> element to change
+          const statusElement = document.getElementById("outputStatus");
+          
+          // Track the time and the number of passes through the loop
+          const startTime = Date.now();
+          let counter = 0;
+          
+          // Set the initial status
+          statusElement.innerText = 'Processing started';
+          
+          // Create a function that does one chunk of work
+          const doChunkedTask = () => {
+            if (Date.now() - startTime < 10000) {
+              counter += 1;
+              statusElement.innerText = `Just generated number ${counter}`;
+              
+              // Schedule the next chunk
+              setTimeout(doChunkedTask, 0);
+            } else {
+              statusElement.innerText = 'Processing completed';
+            }
+          };
+          
+          // Start the process by calling the function for the first time
+          doChunkedTask();
+        }
+      </script>
+      <!-- 9.2 Using a Function That Returns a Promise -->
+       <h3>9.2 Using a Function That Returns a Promise</h3>
+
+       <div>
+        <h1>Fetch and Display Image</h1>
+        <p id="status">Status will be displayed here...</p>
+        <img id="image" src="../../images/javascrpt.png" alt="Image from fetch" style="display:none; width:300px; height:auto;" />
+      </div>
+    
+      <script>
+        // Correct relative path or URL to the image
+        const imagePath = '../../images/javascrpt.png'; // Path to your image file
+    
+        // Create the promise to fetch the image
+        const promise = fetch(imagePath);
+    
+        // Get the status and image elements
+        const statusElement = document.getElementById("status");
+        const imageElement = document.getElementById("image");
+    
+        // Supply a function that logs successful requests and displays the image
+        promise.then(function onSuccess(response) {
+          console.log(`HTTP status: ${response.status}`);
+          if (response.ok) {
+            statusElement.innerText = 'Image fetched successfully!';
+            return response.blob(); // Get the image data as a Blob
+          } else {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+        })
+        .then(function(blob) {
+          const imgURL = URL.createObjectURL(blob); // Create a URL for the image blob
+          imageElement.src = imgURL; // Set the image source
+          imageElement.style.display = 'block'; // Display the image
+        })
+        .catch(function onError(error) {
+          statusElement.innerText = `Error: ${error}`;
+          console.error(`Error: ${error}`);
+        })
+        .finally(function onFinally() {
+          console.log('All done');
+        });
+      </script>
+<!-- 9.3 Promisifying an Asynchronous Function That Uses a Callback -->
+<h3>9.3 Promisifying an Asynchronous Function ThatUses a Callback</h3>
+    <h2>Factorial Calculator</h2>
+
+    <div>
+        <label for="numberInput">Enter a number:</label>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+        <button id="calculateBtn">Calculate Factorial</button>
+    </div>
+    <p id="result">Result will be displayed here...</p>
+    <script>
+        // Original asynchronous factorial function with callbacks
+        function calculateFactorial(num, onSuccess, onFailure) {
+            if (num < 0) {
+                onFailure(new Error('Factorials are only defined for positive numbers'));
+            } else if (num !== Math.trunc(num)) {
+                onFailure(new Error('Factorials are only defined for integers'));
+            } else {
+                setTimeout(() => {
+                    if (num === 0 || num === 1) {
+                        onSuccess(1);
+                    } else {
+                        let result = num;
+                        while (num > 1) {
+                            num -= 1;
+                            result *= num;
+                        }
+                        onSuccess(result);
+                    }
+                }, 3000); // Simulate a 3-second async process
+            }
+        }
+
+        // Promisified version of calculateFactorial
+        function calculateFactorialPromise(num) {
+            return new Promise((resolve, reject) => {
+                calculateFactorial(
+                    num,
+                    result => {
+                        resolve(result);
+                    },
+                    error => {
+                        reject(error);
+                    }
+                );
+            });
+        }
+
+        // DOM Elements
+        const calculateBtn = document.getElementById('calculateBtn');
+        const resultElement = document.getElementById('result');
+        const numberInput = document.getElementById('numberInput');
+
+        // Calculate button event listener
+        calculateBtn.addEventListener('click', () => {
+            const num = parseInt(numberInput.value);
+
+            // Reset result element
+            resultElement.innerText = "Calculating...";
+
+            // Call the Promisified function
+            calculateFactorialPromise(num)
+                .then(result => {
+                    resultElement.innerText = `The factorial is: ${result}`;
+                })
+                .catch(error => {
+                    resultElement.innerText = `Error: ${error.message}`;
+                });
+        });
+
+    </script>
+     <h1>Fetch Image Using Async/Await</h1>
+     <p id="status">Status will be displayed here...</p>
+     <img id="image" src="" alt="Eagle Nebula" style="display:none; width:300px; height:auto;" />
+ 
+     <button id="fetchImageBtn">Fetch Image</button>
+ 
+     <script>
+         // Function to fetch an image using async/await
+         async function fetchImage() {
+             const url = 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg';
+             try {
+                 // Await the fetch operation
+                 const response = await fetch(url);
+                 
+                 // Check if the response is okay (status code in the range 200-299)
+                 if (!response.ok) {
+                     throw new Error(`HTTP status: ${response.status}`);
+                 }
+ 
+                 // Log the response status
+                 console.log(`HTTP status: ${response.status}`);
+                 
+                 // Get the image URL (or other data from the response)
+                 const imageUrl = response.url; // Just for demonstration
+                 document.getElementById('image').src = imageUrl; // Set the image source
+                 document.getElementById('image').style.display = 'block'; // Show the image
+                 document.getElementById('status').innerText = 'Image fetched successfully!';
+             } catch (error) {
+                 console.error(`Error: ${error.message}`);
+                 document.getElementById('status').innerText = `Error: ${error.message}`;
+             } finally {
+                 console.log('All done');
+             }
+         }
+ 
+         // Add event listener to the button
+         document.getElementById('fetchImageBtn').addEventListener('click', fetchImage);
+     </script>
+
+
+
+
+</body>
+</html>

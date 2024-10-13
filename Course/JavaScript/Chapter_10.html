@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 10</title>
+    <link rel="stylesheet" href="jsStyle.css">
+</head>
+<body> 
+    <!-- Back button Start -->
+    <fieldset><marquee  >Chapter 10</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 10.1 Catching and Neutralizing an Error -->
+     <h3>10.1 Catching and Neutralizing an Error</h3>
+
+    <script>
+      let statusMessage = 'Operation pending...';
+  
+      function runTest() {
+        try {
+          // Simulate a potential error (bad URI)
+          const uri = decodeURI('http%test'); // This will throw a URIError
+          statusMessage = 'Success! URI decoded correctly.';
+        } catch (error) {
+          console.log(error);
+          statusMessage = `Error occurred: ${error.message}`;
+        } finally {
+          // This will always run, update the status
+          document.getElementById('status').innerText = statusMessage;
+          console.log('The operation (and any error handling) is complete');
+        }
+      }
+    </script>
+     <h1>Error Handling with Dynamic Variables</h1>
+     <p id="status">Operation pending...</p>
+     <button onclick="runTest()">Run Test</button>
+     <!-- 10.2 Catching Different Types of Errors -->
+<h3>10.2 Catching Different Types of Errors</h3>
+<h2 style="color:red;">Click Buttton Output Console</h2>
+<script>
+  function runTest(errorType) {
+    try {
+      switch (errorType) {
+        case 'RangeError':
+          // Simulating RangeError: A number outside the valid range
+          let num = 1;
+          num.toFixed(100);  // RangeError, as the number of decimals must be <= 20
+          break;
+        
+        case 'ReferenceError':
+          // Simulating ReferenceError: A nonexistent object is referenced
+          let x = nonExistentVariable;  // ReferenceError
+          break;
+
+        case 'SyntaxError':
+          // Simulating SyntaxError: Bad JavaScript code
+          eval('alert("Hello')  // SyntaxError, missing closing quote
+          break;
+
+        case 'TypeError':
+          // Simulating TypeError: Operation on wrong data type
+          null.foo();  // TypeError: null has no properties
+          break;
+
+        case 'URIError':
+          // Simulating URIError: Incorrect URI handling
+          decodeURI('%');  // URIError: malformed URI sequence
+          break;
+
+        case 'AggregateError':
+          // Simulating AggregateError: Multiple asynchronous errors
+          throw new AggregateError([new Error("Error 1"), new Error("Error 2")], "Multiple errors occurred");
+          break;
+
+        case 'EvalError':
+          // Simulating EvalError (historical usage, now replaced by SyntaxError)
+          eval('invalid code');  // Nowadays, it throws SyntaxError, EvalError is no longer used
+          break;
+
+        case 'InternalError':
+          // Simulating InternalError: Happens internally when an operation runs out of memory, etc.
+          function deepRecursion() {
+            deepRecursion();
+          }
+          deepRecursion();  // InternalError: Maximum call stack size exceeded
+          break;
+        
+        default:
+          throw new Error("Unknown error type");
+      }
+    }
+    catch (error) {
+      console.log(`${error.name}: ${error.message}`);
+      
+      // Handling based on error type
+      if (error instanceof RangeError) {
+        console.log("Handling a RangeError.");
+      } else if (error instanceof ReferenceError) {
+        console.log("Handling a ReferenceError.");
+      } else if (error instanceof SyntaxError) {
+        console.log("Handling a SyntaxError.");
+      } else if (error instanceof TypeError) {
+        console.log("Handling a TypeError.");
+      } else if (error instanceof URIError) {
+        console.log("Handling a URIError.");
+      } else if (error instanceof AggregateError) {
+        console.log("Handling an AggregateError. Errors:", error.errors);
+      } else if (error instanceof EvalError) {
+        console.log("Handling an EvalError.");
+      } else if (error instanceof InternalError) {
+        console.log("Handling an InternalError.");
+      } else {
+        console.log("Handling a generic Error.");
+      }
+    }
+    finally {
+      console.log("Error handling complete.");
+    }
+  }
+</script>
+  <h1>JavaScript Error Types</h1>
+  <button onclick="runTest('RangeError')">RangeError</button>
+  <button onclick="runTest('ReferenceError')">ReferenceError</button>
+  <button onclick="runTest('SyntaxError')">SyntaxError</button>
+  <button onclick="runTest('TypeError')">TypeError</button>
+  <button onclick="runTest('URIError')">URIError</button>
+  <button onclick="runTest('AggregateError')">AggregateError</button>
+  <button onclick="runTest('EvalError')">EvalError</button>
+  <button onclick="runTest('InternalError')">InternalError</button>
+
+<body>
+</html>
