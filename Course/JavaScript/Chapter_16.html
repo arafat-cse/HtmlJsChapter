@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 15</title>
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
+    <link rel="stylesheet" href="jsStyle.css">
+</head>
+<body> 
+    <!-- Back button Start -->
+    <fieldset><marquee>Chapter 15</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+        <h1>Form POST HTML</h1>
+        <form id="my-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+            
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" name="email" required />
+            
+            <label for="msg">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    
+        <script>
+            const myForm = document.getElementById('my-form');
+            const url = 'https://jsonplaceholder.typicode.com/posts'; // Example API
+    
+            myForm.addEventListener('submit', async event => {
+                event.preventDefault(); // Prevent the default form submission
+                const formData = new FormData(myForm); // Create FormData object
+    
+                // Create a plain object from FormData
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+    
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json' // Set content type to JSON
+                        },
+                        body: JSON.stringify(data), // Convert data to JSON
+                    });
+    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+    
+                    const result = await response.json(); // Get the response JSON
+                    // alert(`Success! Posted data: ${JSON.stringify(result)}`); // Display the result
+                    alert(`Success! Posted data:`); // Display the result
+                    console.log({result});
+                } catch (error) {
+                    alert(`Error: ${error.message}`); // Handle errors
+                }
+            });
+        </script>
+   
+    
+ 
+</body>
+</html>

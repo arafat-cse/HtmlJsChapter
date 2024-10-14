@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 15</title>
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
+    <link rel="stylesheet" href="jsStyle.css">
+</head>
+<body> 
+    <!-- Back button Start -->
+    <fieldset><marquee>Chapter 15</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 15.1 Adding JavaScript to SVG -->
+     <h3>15.1 Adding JavaScript to SVG</h3>
+     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
+
+  <!-- JavaScript for SVG Interaction -->
+  <script type="text/ecmascript">
+    
+      // Add an event listener to the SVG rectangle
+      window.onload = function() {
+        const square = document.getElementById('square');
+
+        // Define an onclick event to change the square's fill color
+        square.onclick = function() {
+          const currentColor = this.getAttribute('fill');
+          if (currentColor === '#ff0000') {
+            this.setAttribute('fill', '#0000ff');  // Change to blue
+          } else {
+            this.setAttribute('fill', '#ff0000');  // Change back to red
+          }
+        };
+      };
+  
+  </script>
+
+  <!-- SVG Rectangle (square) -->
+  <rect id="square" width="400" height="400" fill="#ff0000" x="10" y="10" />
+</svg>
+
+ 
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 14</title>
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
+    <link rel="stylesheet" href="jsStyle.css">
+    <style>
+        div {
+        margin: 10px;
+        }
+        .data {
+        width: 200px;
+        background-color: white;
+        color: black;
+        padding: 5px;
+        border-radius: 10px;
+        }
+        input{
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body> 
+    <!-- Back button Start -->
+    <fieldset><marquee>Chapter 14</marquee></fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 14.1 Persisting Information with Cookies -->
+     <h3>14.1 Persisting Information with Cookies</h3>
+     <body>
+        <h1>Store, retrieve, and delete a cookie</h1>
+        <form>
+            <div>
+                <label for="key"> Enter key:</label>
+                <input type="text" id="key" placeholder="Enter key:" required />
+            </div>
+            <div>
+                <label for="value">Enter value:</label>
+                <input type="text" id="value" placeholder="Enter value:" required/>
+            </div>
+        </form>
+        <button id="set">Set data</button>
+        <button id="get">Get data</button>
+        <button id="erase">Delete data</button>
+        <p>Cookie value:</p>
+        <div id="cookiestr" class="data"></div>
+        <script>
+            function setData() {
+            const formKey = document.getElementById('key').value;
+            const formValue = document.getElementById('value').value;
+            const cookieVal = `${formKey}=${encodeURIComponent(formValue)}`;
+            document.cookie = cookieVal;
+            }
+            // retrieve the cookie value for a specified key
+            function getData() {
+            const key = document.getElementById('key').value;
+            const Value = document.getElementById('value').value;
+            const cookie = document.getElementById('cookiestr');
+            cookie.innerHTML = '';
+            const keyValue = key.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1');
+            const regex = new RegExp(`(?:^|;)\\s?${keyValue}=(.*?)(?:;|$)`, 'i');
+            const match = document.cookie.match(regex);
+            const value = (match && decodeURIComponent(match[1])) || '';
+            cookie.innerHTML = `<p>${value}</p>`;
+            }
+            // remove the cookie for a specified key
+            function removeData() {
+            const value = document.getElementById('value').value;
+            const key = document.getElementById('key').value;
+
+            document.getElementById('cookiestr').innerHTML = '';
+            const cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC`;
+            document.cookie = cookie;
+            }
+            document.getElementById('set').onclick = setData;
+            document.getElementById('get').onclick = getData;
+            document.getElementById('erase').onclick = removeData;
+        </script>
+        <!-- 14.2 Using sessionStorage for Client-Side Storage -->
+         <h3>14.2 Using sessionStorage for Client-Side Storage</h3>
+           <!-- Session Storage -->
+           <h2>Session Storage</h2>
+           <button  class="button" id="setSession">Set Session Data</button>
+           <div class="data">
+               <table id="sessionTable">
+                   <thead>
+                       <tr>
+                           <th>Key</th>
+                           <th>Value</th>
+                           <th>Actions</th>
+                       </tr>
+                   </thead>
+                   <tbody></tbody>
+               </table>
+           </div>
+</body>
+</html>

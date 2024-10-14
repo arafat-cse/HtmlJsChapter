@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 13</title>
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
+    <link rel="stylesheet" href="jsStyle.css">
+    <style>
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            background-color: white;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            background-color: #ffffff;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back button Start -->
+    <fieldset>
+        <marquee>Chapter 13</marquee>
+    </fieldset>
+    <div>
+        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+    </div>
+    <!-- Back button End -->
+    <!-- 13.1 Requesting Remote Data with Fetch -->
+    <h3>13.1 Requesting Remote Data with Fetch</h3>
+    <script>
+        // Fetch data from an external API (www.themealdb.com users)
+        fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+            .then(apiResponse => apiResponse.json())
+            .then(userData => console.log(userData));
+
+        fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
+            .then(apiResponse => apiResponse.json())
+            .then(userData => console.log(userData.categories));
+        fetch("./categories.json")
+            .then(apiResponse => apiResponse.json())
+            .then(userData => {
+                const data = userData.categories;
+                console.log(data);
+            });
+        const url = "./categories.json";
+        fetch(url)
+            .then(apiResponse => apiResponse.json())
+            .then(userData => {
+                const data = userData.categories;
+                console.log(data);
+            });
+
+
+        async function fatchdata() {
+            const response = await fetch(url);
+            console.log("arafat : ", response);
+            console.log({ response });
+            const data = await response.json();
+            console.log({ data });
+        }
+
+        fatchdata();
+
+
+        async function fetchGet() {
+            const responseGet = await fetch(url, {
+                method: "GET",
+                mode: "cors",
+                credentials: "omit",
+                redirect: "follow",
+                referrerPolicy: "no-referrer"
+            });
+            console.log(responseGet);
+            const data = await responseGet.json();
+            console.log({ data });
+            console.log(data.categories);
+
+        }
+        //     const name = "md samaul islam";
+        //     const nameArr = name.split("a");
+        // console.log(nameArr);
+        // const name2 = "md arafat rahman";
+        // const name2Qrr = name2.split(" ");
+        // console.log(name2Qrr);
+        // const newarr = [...name2Qrr , ...nameArr, "ashib"]
+        // console.log(newarr);
+
+        fetchGet();
+    </script>
+
+    <!--  13.3 Submitting a Form -->
+    <h3>13.3 Submitting a Form</h3>
+    <h1>Form POST HTML</h1>
+    <form id="my-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="mail">E-mail:</label>
+        <input type="email" id="mail" name="email" required />
+
+        <label for="msg">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const myForm = document.getElementById('my-form');
+        const Posturl = 'https://jsonplaceholder.typicode.com/posts'; // Example API
+
+        myForm.addEventListener('submit', async event => {
+            event.preventDefault(); // Prevent the default form submission
+            const formData = new FormData(myForm); // Create FormData object
+
+            // Create a plain object from FormData
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            try {
+                const response = await fetch(Posturl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json' // Set content type to JSON
+                    },
+                    body: JSON.stringify(data), // Convert data to JSON
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const result = await response.json(); // Get the response JSON
+                // alert(`Success! Posted data: ${JSON.stringify(result)}`); // Display the result
+                alert(`Success! Posted data:`); // Display the result
+                console.log("Post: ", { result });
+            } catch (error) {
+                alert(`Error: ${error.message}`); // Handle errors
+            }
+        });
+    </script>
+</body>
+
+</html>

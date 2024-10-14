@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
     <title>Chapter 01</title>
+    <link rel="stylesheet" href="jsStyle.css">
 </head>
 <body>
+   <!-- Back button Start -->
+   <fieldset><marquee  >Chapter 01</marquee></fieldset>
+   <div>
+       <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+   </div>
+   <button class="Outbtn">Output Console</button>
+    <!-- Back button End -->
     <!-- 1.2 Using the Developer Console in Your Browser -->
+     <h3>1.2 Using the Developer Console in Your Browser</h3>
     <h1>Log and Error Test</h1>
 <script>
  console.log('This appears in the developer console');
 </script>
+<h3>1-3. Console method</h3>
+<h3>1.4 Using Strict Mode to Catch Common Mistakes</h3>
 <script>
  // This will cause an error that appears in the console
  const myNumber ="";
 //  Table 1-3. Console method
-
 // Console warn method
 let person = {
     name: "Arafat",
@@ -78,10 +89,7 @@ for (let i = 0; i < 1000000; i++) {
 console.timeEnd('My Timer');
 
 // Check if the person's age is greater than 40
-console.assert(person.age > 40, person);
-
-
-  
+console.assert(person.age > 40, person); 
 // 1.4 Using Strict Mode to Catch Common Mistakes
 function addRange(start, end) {
     let sum = 0;
@@ -99,8 +107,9 @@ function addRange(start, end) {
    endNumber = 5;
    console.log(addRange(startNumber,endNumber)); // Displays 0, but we expect 15
 </script>
+<h3>1.4 Using Strict Mode to Catch Common Mistakes</h3>
+<h3>1.5 Filling in HTML Boilerplate with Emmet Shortcuts</h3>
 <!-- 1.5 Filling in HTML Boilerplate with Emmet Shortcuts -->
 <input type="date" name="" id="" />
-
 </body>
 </html>
