@@ -1,31 +1,38 @@
 .bg-12{
     background-color: antiquewhite;
 }
+/* 12.1 Universal Selector */
 body * p {
     color: red;
 }
+/* 12.3 ID Selector */
 #my-text {
     color: rgb(10, 166, 67);
-}  
+} 
+/* 12.4 Class Selector */
 .my-text {
     color: rgb(12, 195, 116);
 }
+/* 12.5 Multiple-class Selector */
 .my-text.main {
     color: rgb(112, 6, 63);
 }
 .my-text {
     color: blue;
 }
+/* 12.6.1 Status of Links */
+
 :link {
     color: green;
 }
 :visited {
     color: red;
-}    
+} 
+/* 12.6.2 Cursor Interaction    */
 :focus {
     color: red;
 }
-    :hover {
+:hover {
     color: green;
 }
 :active {
@@ -34,21 +41,24 @@ body * p {
 button:focus {
     color: red;
 }
-    button:hover {
+button:hover {
     color: green;
 }
-    button:active {
+button:active {
     color: blue;
 }
+/* 12.6.3 Status of Elements */
 :enabled {
     background-color: cyan;
 }
-    :disabled {
+:disabled {
     background-color: #ccc;
 }
 input:checked + span {
     color: red;
-} 
+}
+/* 12.6.4 Form Validation */
+
 input:invalid {
     background-color: lightpink;
 } 
@@ -63,12 +73,3 @@ input:not([type="submit"]) {
 .nav-lnk:not(:first-child):not(:last-child) {
     color: red;
 }
-/* p::first-letter {
-    font-size: 30px;
-    color: red;
-}  */
-/* p::first-line {
-    color: red;
-    } */
-    
-    
