@@ -6,8 +6,7 @@
     margin: 8px;
     box-sizing: border-box;
 }
-    /* 4.1.2 Content Box */
-
+/* 4.1.2 Content Box */
 #my-element {
     width: 200px;
     height: 200px;
@@ -16,9 +15,7 @@
     margin: 8px;
     box-sizing: content-box;
 }
-        
-
-* {
+*{
      box-sizing: border-box;
 } 
 #parent {
@@ -31,7 +28,6 @@
     margin-bottom: 50px;
     margin-left: 30px;
 }
- 
 #parent1 {
     border: 1px solid black;
     height: 100px;
@@ -44,11 +40,11 @@
 #parent2 {
     border: 1px solid black;
 }
-    #child-one {
+#child-one {
     border: 1px solid red;
     margin: 30px;
 }
-    #child-two {
+#child-two {
     border: 1px solid blue;
     margin: 60px;
 }
@@ -84,8 +80,6 @@ will have a shorthand like this
 p {
 border: 5px solid red;
 }
-
-
 /* 4.4.2 CSS Border Radius */
 .redio[id] {
     padding: 20px;
@@ -93,10 +87,10 @@ border: 5px solid red;
     height: 50px;
     background: rgb(138, 19, 98);
 }
-    #p1 {
+#p1 {
     border-radius: 10px;
 }
-    #p2 {
+#p2 {
     border-radius: 50%;
 }
     /* 4.4.3 CSS Border Images */
@@ -105,12 +99,12 @@ border: 5px solid red;
         padding: 15px;
         border-image: url(../../../images/bimage.jpg) 30 round;
 }
-        #border-img-stretch {
+#border-img-stretch {
         border: 10px solid transparent;
         padding: 15px;
         border-image: url(../../../images/bimage.jpg) 30 stretch;
 }
-p {
+p{
      border: 1px solid black;
      padding: 20px;
 }       

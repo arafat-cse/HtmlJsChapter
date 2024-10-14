@@ -2,12 +2,15 @@
     margin: 10px;
     padding: 0;
     box-sizing: border-box;
-    background-color:aquamarine ;
+    background-color:rgb(120,170,170) ;
 }
   body {
       font-family: Arial, sans-serif;
       width: 1250px;
       margin: 0 auto;
+}
+h3{
+    color: white;
 }
 /* output button css Start */
 .Outbtn{
