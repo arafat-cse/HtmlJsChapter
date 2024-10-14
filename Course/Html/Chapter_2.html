@@ -6,119 +6,222 @@
     <title>Chapter 2</title>
 	<link rel="stylesheet" href="Style_html.css">
 	<link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
+<style>
+	td{
+		border: 1px solid tomato;
+	}
+	footer{
+		text-align: center;
+		height: 100px;
+		padding: 10px;
+	}
+</style>
 </head>
 <body>
-	<fieldset><marquee  >Chapter 02</marquee></fieldset>
-    <div>
-        <a href="index_html.html"><img src="../../images/Back.png" alt="Back_Image"></a>
-    </div>
-    <!--target _blank--->
-<h3>This is Home Page</h3>
-<a style=" text-decoration: none; font-size: 30px;" href ="/" target="_blank"> Home Page</a>
-<br/>
-<img src ="../../images/favicon.svg" alt="No image" width ="100px"/>
-<p> download image</p>
-<a style="font-size: 30px; text-decoration: none;" href="../../images/html.png" download="new-name">Download Image</a>
+	<!-- Back button Start -->
+	<div>
+		<fieldset><marquee  >Chapter 02</marquee></fieldset>
+		<div>
+			<a href="index_html.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+		</div>
+	</div>
+	<!-- Back button End -->
 
-<p>Unordered list: </p>
-<ul>
-	<li> Item 1</li>
-	<li> Item 2</li>
-	<li> Item 3</li>
-</ul>
-<p> Order List: </p>
-<ol>
-	<li> Item 1</li>
-	<li> Item 2</li>
-	<li> Item 3</li>
-</ol>
-<p>Desctipion</p>
-<dl>
-	<dt>Html 5</dt>
-	<dd>Is the standard markup language for web pages</dd>
-	<dt>CSS</dt>
-	<dd>Is the language we use to style ans HTML Document.</dd>
-	<dt>JavaScript</dt>
-	<dd> Is the world's most popular programming Language.</dd>
-</dl>
-<p> Table implement</p>
-<table style="border: 1px solid tomato;">
-	<caption> Create Table</caption>
-	<colgroup>
-	<col span ="5" class ="Days"/>
-	<col span ="2" class  = "Weekend"> 
-	</colgroup>
-	<thead>
-			<tr>
-				<th>Mon </th>
-				<th>Tue </th>
-				<th>Thu </th>
-				<th>Fri </th>
-				<th>Sat </th>
-				<th>Sun </th>
+    <!--target _blank--->
+<section class="chapter2">
+<h3 class="tl">2.1 Headings</h3>
+<h4 class="cd">
+	<pre>
+		&lt;!DOCTYPE html&gt;
+		&lt;html&gt;
+		&lt;head&gt;
+		&lt;title&gt;My Website&lt;/title&gt;
+		&lt;/head&gt;
+		&lt;body&gt;
+		&lt;h1&gt;Heading 1&lt;/h1&gt;
+		&lt;h2&gt;Heading 2&lt;/h2&gt;
+		&lt;h3&gt;Heading 3&lt;/h3&gt;
+		&lt;h4&gt;Heading 4&lt;/h4&gt;
+		&lt;h5&gt;Heading 5&lt;/h5&gt;
+		&lt;h6&gt;Heading 6&lt;/h6&gt;
+		&lt;/body&gt;
+		&lt;/html&gt;
+	</pre>
+</h4>
+<h3 class="tl">2.2 Paragraphs</h3>
+<h4 class="cd">
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;title&gt;My Website&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;h1&gt;Heading 1&lt;/h1&gt;
+        &lt;p&gt;This is your first paragraph.&lt;/p&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+</h4>
+<h3 class="tl">2.3 Hyperlinks</h3>
+		<a style=" text-decoration: none; font-size: 30px;" href ="/" target="_blank"> Home Page</a>
+		
+<h3 class="tl">.3.1 External Anchors</h3>
+<h4 class="cd">
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;title&gt;My Website&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;h1&gt;Home Page&lt;/h1&gt;
+        &lt;a href=&quot;/contact.html&quot;&gt;Contact Page&lt;/a&gt;
+        &lt;a href=&quot;/user/login.html&quot;&gt;Login Page&lt;/a&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+</h4>
+<h3 class="tl">2.3.2 Internal Anchors</h3>
+<h4 class="cd">
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+        &lt;head&gt;
+        &lt;title&gt;My Website&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;h1&gt;Home Page&lt;/h1&gt;
+        &lt;a href=&quot;#cake&quot;&gt;Go to My Cake&lt;/a&gt;
+        &lt;h2 id=&quot;apple&quot;&gt;My Apple&lt;/h2&gt;
+        &lt;img src=&quot;an-apple.jpg&quot; alt=&quot;This is an apple&quot; height=&quot;1000&quot; /&gt;
+        &lt;h2 id=&quot;cake&quot;&gt;My Cake&lt;/h2&gt;
+        &lt;img src=&quot;a-cake.jpg&quot; alt=&quot;This is a cake&quot; height=&quot;1000&quot; /&gt;
+        &lt;a href=&quot;#apple&quot;&gt;Go to My Apple&lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;Back to the top&lt;/a&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+</h4>
+<h3 class="tl">.3.3 Download Links</h3>
+		<a style="font-size: 30px; text-decoration: none;" href="../../images/html.png" download="new-name">Download Image</a>
+<h3 class="tl">2.4 Images</h3>
+		<br/>
+		<img src ="../../images/favicon.svg" alt="No image" width ="100px"/>
+		<p> download image</p>
+<h3 class="tl">.4.2 Responsive Pictures</h3>
+<div>
+	<p>Resize the browser to load different images.</p>
+	<picture>
+	<source media="(min-width:500px)" srcset="image2" />
+	<source media="(min-width:300px)" srcset="image3" />
+	<img src="../../images/arafat.jpg" alt="A number" />
+	</picture>
+</div>
+<h3 class="tl">2.5.1 Unordered List</h3>
+			<p>Unordered list: </p>
+			<ul>
+				<li> Item 1</li>
+				<li> Item 2</li>
+				<li> Item 3</li>
+			</ul>
+<h3 class="tl">2.5.2 Ordered List</h3>
+		<p> Order List: </p>
+		<ol>
+			<li> Item 1</li>
+			<li> Item 2</li>
+			<li> Item 3</li>
+		</ol>
+<h3 class="tl">2.5.3 Description Lists</h3>
+		<p>Desctipion</p>
+		<dl>
+			<dt>Html 5</dt>
+			<dd>Is the standard markup language for web pages</dd>
+			<dt>CSS</dt>
+			<dd>Is the language we use to style ans HTML Document.</dd>
+			<dt>JavaScript</dt>
+			<dd> Is the world's most popular programming Language.</dd>
+		</dl>
+<h3 class="tl">2.6 Tables</h3>
+		<p> Table implement</p>
+		<table style="border: 1px solid tomato;">
+			<caption> Create Table</caption>
+			<colgroup>
+			<col span ="5" class ="Days"/>
+			<col span ="2" class  = "Weekend"> 
+			</colgroup>
+			<thead>
+					<tr>
+					<th>Mon </th>
+					<th>Tue </th>
+					<th>Thu </th>
+					<th>Fri </th>
+					<th>Sat </th>
+					<th>Sun </th>
+				</tr>
+		</thead>
+		<tbody >
+			<tr >
+				<td ></td>
+				<td></td>
+				<td></td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
 			</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>1</td>
-			<td>2</td>
-			<td>3</td>
-			<td>4</td>
-		</tr>
-		<tr>
-			<td>5</td>
-			<td>6</td>
-			<td>7</td>
-			<td>8</td>
-			<td>9</td>
-			<td>10</td>
-			<td>11</td>
-		</tr>
-		<tr>
-			<td>12</td>
-			<td>13</td>
-			<td>14</td>
-			<td>15</td>
-			<td>16</td>
-			<td>17</td>
-			<td>18</td>
-		</tr>
-		<tr>
-			<td>19</td>
-			<td>20</td>
-			<td>21</td>
-			<td>22</td>
-			<td>23</td>
-			<td>24</td>
-			<td>25</td>
-		</tr>
-		<tr>
-			<td>26</td>
-			<td>27</td>
-			<td>29</td>
-			<td colspan="2"></td>
-			<td>20</td>
-		</tr>
-	</tbody>
-</table>
-<p>
-	Uploading:
-	<progress value="60" max="100"></progress> 60%
-</p>
-<p>
-	Disk Usage:
-	<meter value="60" max ="120"></meter> 10GB of 120GB
-</p>
-<p> this is a piece of javaScript code:</p>
-<code> var x=10;</code>
-<pre>
-	Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur enim labore ullam.
-</pre>
-<iframe id="my-iframe" src ="https://abinary.bmhbd.org/">
-</iframe>
+			<tr>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+				<td>16</td>
+				<td>17</td>
+				<td>18</td>
+			</tr>
+			<tr>
+				<td>19</td>
+				<td>20</td>
+				<td>21</td>
+				<td>22</td>
+				<td>23</td>
+				<td>24</td>
+				<td>25</td>
+			</tr>
+			<tr>
+				<td>26</td>
+				<td>27</td>
+				<td>29</td>
+				<td colspan="2"></td>
+				<td>20</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		Uploading:
+		<progress value="60" max="100"></progress> 60%
+	</p>
+	<p>
+		Disk Usage:
+		<meter value="60" max ="120"></meter> 10GB of 120GB
+	</p>
+	<p> this is a piece of javaScript code:</p>
+	<code> var x=10;</code>
+	<pre>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur enim labore ullam.
+	</pre>
+	<iframe id="my-iframe" src ="https://abinary.bmhbd.org/">
+	</iframe>
+	</section>
 <br>
 <footer>
 	Footer implement:<br/> &copy;2024, Md Arafat Rahman
