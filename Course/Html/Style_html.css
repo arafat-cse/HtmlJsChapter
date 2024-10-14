@@ -8,6 +8,12 @@
       width: 1250px;
       margin: 0 auto;
   }
+  .tl{
+    color: white;
+  }
+  .cd{
+    color:antiquewhite
+  }
   .form-container {
     background-color: #fff;
     /* padding: 5px; */
@@ -61,7 +67,7 @@ button:hover {
 }
 /* Chapter 01  Start */
 .chapter1{
- background-color: aqua;
+ background-color: rgb(127, 170, 170);
 }
 .container{
   padding-left: 20px;
