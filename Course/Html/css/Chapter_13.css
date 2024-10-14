@@ -13,27 +13,27 @@ h1 {
 h1 {
     color: orange;
     }
-    /* Universal Selector */
-    * {
+/* Universal Selector */
+* {
     color: red;
 }
 /* Combined Selector of Tags */
 body h1 {
     color: yellow;
 }
-    /* Type Selector */
-    h1 {
+/* Type Selector */
+h1 {
     color: orange;
 }
 /* Class Selector */
 .heading {
     color: green;
 }
-    /* Combined Selector of Tags */
-    body h1 {
+/* Combined Selector of Tags */
+body h1 {
     color: yellow;
 }
-    /* Combined Selector of Classes and Tags */
+/* Combined Selector of Classes and Tags */
 body .heading {
     color: blue;
 }
@@ -45,16 +45,16 @@ body .heading {
 .heading.first {
     color: indigo;
  }
-    /* Combined Selector of Classes and Tags */
-    body .heading {
+/* Combined Selector of Classes and Tags */
+body .heading {
     color: blue;
 }
 /* ID Selector */
 #heading-one {
     color: violet;
 }
-    /* Multiple-Class Selector */
-    .heading.first {
+/* Multiple-Class Selector */
+.heading.first {
     color: indigo;
 }
 /* All */
@@ -62,37 +62,37 @@ body .heading {
 #heading-one {
     color: violet;
 }
-    /* Multiple-Class Selector */
-    .heading.first {
+/* Multiple-Class Selector */
+.heading.first {
     color: indigo;
 }
-    /* Combined Selector of Classes and Tags */
-    body .heading {
+/* Combined Selector of Classes and Tags */
+body .heading {
     color: blue;
 }
-    /* Class Selector */
-    .heading {
+/* Class Selector */
+.heading {
     color: green;
 }
-    /* Combined Selector of Tags */
-    body h1 {
+/* Combined Selector of Tags */
+body h1 {
     color: yellow;
 }
-    /* Type Selector */
-    h1 {
+/* Type Selector */
+h1 {
     color: orange;
 }
-    /* Universal Selector */
-    * {
+/* Universal Selector */
+* {
     color: red;
 }
 /* 3.5 Inheritance */
 .parent {
     color: red;
  }
-    .line {
+.line {
     color: green;
 }
-    .first-line {
+.first-line {
     color: inherit;
 }   
