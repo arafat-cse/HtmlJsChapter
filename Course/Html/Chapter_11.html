@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 11</title>
+    <link rel="stylesheet" href="Style_html.css">
     <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
     <s><link rel="stylesheet" href="css/Chapter_11.css"></s>
     <!-- 1.5.2 Internal CSS -->
@@ -15,13 +16,17 @@
         </style>
 </head>
 <body>
-    <section>
+    <!-- Back button Start -->
+    <div>
         <fieldset><marquee >Chapter 11</marquee></fieldset>
         <section>
             <a href="index_html.html"><img src="../../images/Back.png" alt=""></a>
         </section>
-    </section>
-    <p>This is pragraph</p>
+    </div>
+    <!-- Back button End -->
+<section style=" padding-top:50px;height:700px;background-color:  rgb(127, 170, 170);">
+    <!-- 11.1.1 CSS Syntax -->
+     <h3 class="tl">11.1.1 CSS Syntax</h3>
     <article>
             <p>
                 This element does not have its style, so that the font-size will be
@@ -32,7 +37,20 @@
                 be 30px (20 * 1.5 = 30)
             </p>
     </article>
-   
+    <!-- 11.3.1 Absolute Lengths -->
+    <h3 class="tl">11.3.1 Absolute Lengths</h3>
+    <h3>
+        <pre>
+            These are the most popular absolute lengths:
+            ● cm : centimeters
+            ● mm : millimeters
+            ● in : inches (1in = 96px = 2.54cm)
+            ● px : pixels (1px = 1/96th of 1in)
+            ● pt : points (1pt = 1/72 of 1in)
+        </pre>
+    </h3>
+    <!-- 11.3.2 Relative Lengths -->
+    <h3 class="tl">11.3.2 Relative Lengths</h3>
     <div class="parent">
         I'm 15px
         <div class="child">
@@ -54,13 +72,14 @@
        <div class="child01">I'm 26px, good!</div>
        </div>
     </div>
-        <!-- 1.4 Shorthand Properties -->
+        <!-- 11.4 Shorthand Properties -->
+    <h3 class="tl">11.4 Shorthand Properties</h3>
         <p style="color: red; font-size: 26px">This is the first
             paragraph.</p>
         <p>This is the second paragraph.</p>
         <!-- 1.5.2 Internal CSS -->
         <p>This is the first paragraph.</p>
         <p>This is the second paragraph.</p>
-        
+</section>
 </body>
 </html>
