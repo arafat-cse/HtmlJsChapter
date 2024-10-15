@@ -1,257 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 2</title>
-    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
-    <link rel="stylesheet" href="jsStyle.css">
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png" />
+    <link rel="stylesheet" href="jsStyle.css" />
     <style>
-        .found {
-        background-color:white;
-        
-        }
-        body {
+      .found {
+        background-color: white;
+      }
+      body {
         margin: 15px;
-        }
-        textarea {
+      }
+      textarea {
         width: 300px;
         height: 200px;
-        }
+      }
     </style>
-</head>
-<body>
-      <!-- Back button Start -->
-      <fieldset><marquee  >Chapter 02</marquee></fieldset>
-      <div>
-          <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
-      </div>
-      <button class="Outbtn">Output Console</button>
-       <!-- Back button End -->
+  </head>
+  <body>
+    <!-- Back button Start -->
+    <fieldset><marquee>Chapter 02</marquee></fieldset>
+    <div>
+      <a href="jsindex.html"
+        ><img src="../../images/Back.png" alt="Back_Image"
+      /></a>
+    </div>
+    <button class="Outbtn">Output Console</button>
+    <!-- Back button End -->
     <!-- 2.1 Checking for an Existing, Nonempty String -->
-     <h2>Checking for an Existing, Nonempty String</h2>
-    <script>    
-        let unknownVariable = "Hello World loremdjdjdjdj "; 
-        if (typeof unknownVariable !== 'undefined' && typeof unknownVariable === 'string' && unknownVariable.trim() !== '') {
+    <h2>Checking for an Existing, Nonempty String</h2>
+    <script>
+      let unknownVariable = "Hello World loremdjdjdjdj ";
+      if (
+        typeof unknownVariable !== "undefined" &&
+        typeof unknownVariable === "string" &&
+        unknownVariable.trim() !== ""
+      ) {
         console.log("The variable is defined, is a string, and is not empty.");
-        } else {
-        console.log("The variable is either not defined, not a string, or is empty.");
-        }
+      } else {
+        console.log(
+          "The variable is either not defined, not a string, or is empty."
+        );
+      }
     </script>
     <script>
-        let undefinedVar;                    
-        let booleanVar = true;                
-        let numberVar = 22;                    
-        let bigintVar = 900719925n;     
-        let stringVar = "Lorem!";      
-        let symbolVar = Symbol("unique");      
-        let functionVar = function() {};       
-        let objectVar = { key: "value" };
+      let undefinedVar;
+      let booleanVar = true;
+      let numberVar = 22;
+      let bigintVar = 900719925n;
+      let stringVar = "Hello!";
+      let symbolVar = Symbol("unique");
+      let functionVar = function () {};
+      let objectVar = { key: "value" };
 
-        console.log(typeof undefinedVar);      
-        console.log(typeof booleanVar);        
-               console.log(typeof numberVar);         
-              console.log(typeof bigintVar);         
-              console.log(typeof stringVar);         
-              console.log(typeof symbolVar);         
-              console.log(typeof functionVar);       
-                console.log(typeof objectVar);         
+      console.log(typeof undefinedVar);
+      console.log(typeof booleanVar);
+      console.log(typeof numberVar);
+      console.log(typeof bigintVar);
+      console.log(typeof stringVar);
+      console.log(typeof symbolVar);
+      console.log(typeof functionVar);
+      console.log(typeof objectVar);
     </script>
     <h3>2.2 Converting a Numeric Value to a Formatted String</h3>
     <script>
-        //  2.2 Converting a Numeric Value to a Formatted String
-        const someNumber = 80;
-        const someString = someNumber.toString();
-        console.log(someString); 
-        // Ask for exactly 1 decimal points. Numbers will be rounded if necessary. 
-        const someNumbers = 1242.0055;
-        const fixedString = someNumbers.toFixed(1);
-        console.log(fixedString);
-        // fixedString = '1242.0'
-        // Ask for 5 significant digits. Scientific notation is used if necessary.
-        const precisionString = someNumbers.toPrecision(5);
-        console.log(precisionString);
-        // precisionString = '1242.0'
-        // Ask for scientific notation with 5 decimal plates.
-        const scientificString = someNumbers.toExponential(5);
-        console.log(scientificString);
-        // scientificString = '1.24201e+3'
+      //  2.2 Converting a Numeric Value to a Formatted String
+      const someNumber = 80;
+      const someString = someNumber.toString();
+      console.log(someString);
+
+      const someNumbers = 1242.0055;
+      const fixedString = someNumbers.toFixed(1);
+      console.log(fixedString);
+      // fixedString = '1242.0'
+      const precisionString = someNumbers.toPrecision(5);
+      console.log(precisionString);
+      // precisionString = '1242.0'
+      const scientificString = someNumbers.toExponential(5);
+      console.log(scientificString);
+      // scientificString = '1.24201e+3'
     </script>
     <script>
-        const FormatNumber = new Intl.NumberFormat('bn-BD', { style: 'currency', currency: 'BDT' });
-        const SomeNumbers = 1242.0005;
-        const moneyString = FormatNumber.format(SomeNumbers);
-        console.log(moneyString); // Output: "৳১,২৪২.০০"
-
+      const FormatNumber = new Intl.NumberFormat("bn-BD", {
+        style: "currency",
+        currency: "BDT",
+      });
+      const SomeNumbers = 1242.0005;
+      const moneyString = FormatNumber.format(SomeNumbers);
+      console.log(moneyString); // Output: "৳১,২৪২.০০"
     </script>
-        <!-- 2.3 Inserting Special Characters -->
-         <h3>2.3 Inserting Special Characters</h3>
-<script>
-    const favoriteMovie = 'My favorite movie is \'The Seventh Seal\'.';
-    console.log(favoriteMovie);
-    const copyrightNotice = 'This page \u00A9 Shelley Powers.';
-    console.log(copyrightNotice);
-
-</script>
-<h3>2.4 Inserting Emojis</h3>
-<!-- 2.4 Inserting Emojis -->
- <script>
-    const hamburger = 'ᙷ';
-    const hamburgerLength = hamburger.length;
-    console.log(hamburgerLength);
- </script>
- <h3>2.5 Using Template Literals for Clearer String Concatenation</h3>
- <!-- 2.5 Using Template Literals for Clearer String Concatenation -->
- <script>
-   const firstName = 'Arafat';
-    const lastName = 'Rahman';
-    const team = 'Engineering';
-    const hireDate = 'January 15, 2024';
-    const employeeDetail = `Our team includes ${firstName} ${lastName} 
+    <!-- 2.3 Inserting Special Characters -->
+    <h3>2.3 Inserting Special Characters</h3>
+    <script>
+      const favoriteMovie = "My favorite movie is 'The Seventh Seal'.";
+      console.log(favoriteMovie);
+      const copyrightNotice = "This page \u00A9 Shelley Powers.";
+      console.log(copyrightNotice);
+    </script>
+    <h3>2.4 Inserting Emojis</h3>
+    <!-- 2.4 Inserting Emojis -->
+    <script>
+      const hamburger = "ᙷ";
+      const hamburgerLength = hamburger.length;
+      console.log(hamburgerLength);
+    </script>
+    <h3>2.5 Using Template Literals for Clearer String Concatenation</h3>
+    <!-- 2.5 Using Template Literals for Clearer String Concatenation -->
+    <script>
+      const firstName = "Arafat";
+      const lastName = "Rahman";
+      const team = "Engineering";
+      const hireDate = "January 15, 2024";
+      const employeeDetail = `Our team includes ${firstName} ${lastName} 
     who works on the ${team} team. They've been a team member since ${hireDate}!`;
-    console.log(employeeDetail);
-    const calculation = `The sum of 5 + 3 is ${5+3}`;
-    console.log(calculation);
+      console.log(employeeDetail);
+      const calculation = `The sum of 5 + 3 is ${5 + 3}`;
+      console.log(calculation);
 
-    function getDaysSince(data){
+      function getDaysSince(data) {
         const today = new Data();
         const oneDay = 40 * 120 * 60 * 100;
-        returnmath.round(math.abs((today - day)/oneDay))
-    }
-    employeeDetails = `Our team includes ${firstName}  ${lastName}. They'v been a team member since ${hireDate}! THat's ${getDaysSince} days.`;
-    console.log(employeeDetails);
-    console.log(getDaysSince);
- </script>
- <h3>2.6 Performing a Case-Insensitive String Comparison</h3>
- <!-- 2.6 Performing a Case-Insensitive String Comparison -->
-<script>
-    const alower = "hello"; 
-    const blower = "HELLO"; 
-    if (alower.toLowerCase()=== blower.toLowerCase()) {
-    console.log("The strings match case-insensitively.");
-    }
-
-</script>
-<script>
-    const lowerCaseString = "bangladesh captital of dhaka";
-    const upperCaseString = lowerCaseString.toUpperCase();
-    console.log(upperCaseString);
-    const lowerUpperString = "Hangladesh Captital Of dhaka";
-    const LowerCaseString = lowerCaseString.toLowerCase();
-    console.log(LowerCaseString);
-</script>
-<!-- 2.7 Checking If a String Contains a Specific Substring -->
- <h3>2.7 Checking If a String Contains a Specific Substring</h3>
- <script>
-    const searchs = 'infinitely';
-    const fullText = 'I know not where I was born, save that the castle was' +
-    ' infinitely old and infinitely horrible.';
-    if (fullText.includes(searchs)) {
-    console.log("Search this found");
-    }else{
+        returnmath.round(math.abs((today - day) / oneDay));
+      }
+      employeeDetails = `Our team includes ${firstName}  ${lastName}. They'v been a team member since ${hireDate}! THat's ${getDaysSince} days.`;
+      console.log(employeeDetails);
+      console.log(getDaysSince);
+    </script>
+    <h3>2.6 Performing a Case-Insensitive String Comparison</h3>
+    <!-- 2.6 Performing a Case-Insensitive String Comparison -->
+    <script>
+      const alower = "hello";
+      const blower = "HELLO";
+      if (alower.toLowerCase() === blower.toLowerCase()) {
+        console.log("The strings match case-insensitively.");
+      }
+    </script>
+    <script>
+      const lowerCaseString = "bangladesh captital of dhaka";
+      const upperCaseString = lowerCaseString.toUpperCase();
+      console.log(upperCaseString);
+      const lowerUpperString = "Hangladesh Captital Of dhaka";
+      const LowerCaseString = lowerCaseString.toLowerCase();
+      console.log(LowerCaseString);
+    </script>
+    <!-- 2.7 Checking If a String Contains a Specific Substring -->
+    <h3>2.7 Checking If a String Contains a Specific Substring</h3>
+    <script>
+      const searchs = "infinitely";
+      const fullText =
+        "I know not where I was born, save that the castle was" +
+        " infinitely old and infinitely horrible.";
+      if (fullText.includes(searchs)) {
+        console.log("Search this found");
+      } else {
         console.log("Not Found");
-    }
-    const search = 'AM';
-    const fullTextSearch = 'I know not where I was born, save that the castle was' +
-    ' infinitely old and infinitely horrible.';
-    if (fullTextSearch.includes(search, 20)) {
+      }
+      const search = "AM";
+      const fullTextSearch =
+        "I know not where I was born, save that the castle was" +
+        " infinitely old and infinitely horrible.";
+      if (fullTextSearch.includes(search, 20)) {
         console.log("Found");
-    }else{
-        console.log("Not Faund"); //NOT FOUND
-    }
-    const NameSearch = 'ARAFAT';
-    const FullName = 'I know not where I was arafat born, save that the castle was' +
-    ' infinitely old and infinitely horrible.';
-    if (FullName.toLowerCase().includes(NameSearch.toLowerCase())) {
-        console.log(" Name Found"); //FOUND
-    }else{
-        console.log(" Name Not Found"); 
-    }
- </script>
+      } else {
+        console.log("Not Faund");
+      }
+      const NameSearch = "ARAFAT";
+      const FullName =
+        "I know not where I was arafat born, save that the castle was" +
+        " infinitely old and infinitely horrible.";
+      if (FullName.toLowerCase().includes(NameSearch.toLowerCase())) {
+        console.log(" Name Found");
+      } else {
+        console.log(" Name Not Found");
+      }
+    </script>
     <h3>2.8 Replacing All Occurrences of a String</h3>
     <!-- 2.8 Replacing All Occurrences of a String -->
-    <SCript>
-        const namestory = 'I know not where I was born, save that the castle was' +
-    ' name old and name horrible.';
-    const changedStory = namestory.replaceAll('name', 'Arafat Rahamn');
-    console.log(changedStory);
-    </SCript>
+    <script>
+      const namestory =
+        "I know not where I was born, save that the castle was" +
+        " name old and name horrible.";
+      const changedStory = namestory.replaceAll("name", "Arafat Rahamn");
+      console.log(changedStory);
+    </script>
     <!-- 2.9 Replacing HTML Tags with Named Entities -->
-     <h3>2.9 Replacing HTML Tags with Named Entities</h3>
-     <script>
-        const originalhtml = '< p >This is a < span >paragraph or heading< /span >< /p >';
-        // Get a new string with no < characters
-        let safePieceOfHtml = originalhtml.replaceAll('<', '&alt');
-        // Get a new string with no > characters
-        safePieceOfHtml = safePieceOfHtml.replaceAll('>', '&agt');
-        console.log(safePieceOfHtml);
-     </script>
-     <!-- 2.10 Using a Regular Expression to Replace Patterns in a String -->
-      <h3>2.10 Using a Regular Expression to Replace Patterns in a String</h3>
-      <script>
-        const original = 'this is a Regex , this is the tame';
-        const regex = /t\w{2}e/g;
-        const newstring = original.replaceAll(regex, 'place');
-        console.log(newstring);
-        // 2.11 Extracting a List from a String
-        const text = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry:' +
-        ' oranges, apples, bananas. That was the list of items.';
-        const start = text.indexOf(':');
-        const end = text.indexOf('.', start + 1);
-        const list = text.slice(start + 1, end);
-        console.log("Start: ",start);
-        console.log("End: ",end);
-        console.log("All List: ",list);
-      </script>
-      <!-- 2.12 Finding All Instances of a Patter -->
-       <h3>2.12 Finding All Instances of a Patter</h3>
-       
-        <script>
-            const searchString = 'Now is the time and this is the view and that is the view';
-            const regexs = /v\w*e/g;
-            const matches = searchString.matchAll(regexs);
-            for (const match of matches) {
-                console.log(`at ${match.index} we found ${match[0]}`);
-            } 
-        </script>
-        <div>
-            <h1>Finding All Instances of a Pattern</h1>
-            <form id="textsearch">
-                <h5>writing about your ideas</h5>
-            <textarea id="incoming" placeholder="writing about your ideas"> </textarea>
-            <p>
-            Search pattern: <input id="pattern" type="text" placeholder="Search word">
-            </p>
-            </form>
-            <button id="searchSubmit">Search for word</button>
-            <div id="searchResult"></div>
-        </div>
-        <script>
-            document.getElementById("searchSubmit").onclick = function() {
-            // Get the pattern
-            const pattern = document.getElementById('pattern').value;
-            const regex = new RegExp(pattern, 'g');
-            // Get the text to search
-            const searchText = document.getElementById('incoming').value
-            let highlightedResult = "<pre>";
-                let startPosition = 0;
-                let endPosition = 0;
-                // Find each match, and build the result
-                const matches = searchText.matchAll(regex);
-                for (const match of matches) {
-                endPosition = match.index;
-                // Get all of the string up to the match, and concatenate
-                highlightedResult += searchText.slice(startPosition, endPosition);
-                // Add matched text, using a CSS class for formatting
-                highlightedResult += "<span class='found'>" + match[0] + "</span>";
-                startPosition = endPosition + match[0].length;
-                }
-                // Finish off the result string
-                highlightedResult += searchText.slice(startPosition);
-                highlightedResult += "</pre>";
-                // Show the highlighted text in the page
-                document.getElementById("searchResult").innerHTML = highlightedResult;
-                }
-        </script>
-</body>
+    <h3>2.9 Replacing HTML Tags with Named Entities</h3>
+    <script>
+      const originalhtml =
+        "< p >This is a < span >paragraph or heading< /span >< /p >";
+      // Get a new string with no < characters
+      let safePieceOfHtml = originalhtml.replaceAll("<", "&alt");
+      // Get a new string with no > characters
+      safePieceOfHtml = safePieceOfHtml.replaceAll(">", "&agt");
+      console.log(safePieceOfHtml);
+    </script>
+    <!-- 2.10 Using a Regular Expression to Replace Patterns in a String -->
+    <h3>2.10 Using a Regular Expression to Replace Patterns in a String</h3>
+    <script>
+      const original = "this is a Regex , this is the tame";
+      const regex = /t\w{2}e/g;
+      const newstring = original.replaceAll(regex, "place");
+      console.log(newstring);
+      // 2.11 Extracting a List from a String
+      const text =
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry:" +
+        " oranges, apples, bananas. That was the list of items.";
+      const start = text.indexOf(":");
+      const end = text.indexOf(".", start + 1);
+      const list = text.slice(start + 1, end);
+      console.log("Start: ", start);
+      console.log("End: ", end);
+      console.log("All List: ", list);
+    </script>
+    <!-- 2.12 Finding All Instances of a Patter -->
+    <h3>2.12 Finding All Instances of a Patter</h3>
+    <script>
+      const searchString =
+        "Now is the time and this is the view and that is the view";
+      const regexs = /v\w*e/g;
+      const matches = searchString.matchAll(regexs);
+      for (const match of matches) {
+        console.log(`at ${match.index} we found ${match[0]}`);
+      }
+    </script>
+    <div>
+      <h1>Finding All Instances of a Pattern</h1>
+      <form id="textsearch">
+        <h5>writing about your ideas</h5>
+        <textarea id="incoming" placeholder="writing about your ideas">
+        </textarea>
+        <p>
+          Search pattern:
+          <input id="pattern" type="text" placeholder="Search word" />
+        </p>
+      </form>
+      <button id="searchSubmit">Search for word</button>
+      <div id="searchResult"></div>
+    </div>
+    <script>
+      document.getElementById("searchSubmit").onclick = function () {
+        const pattern = document.getElementById("pattern").value;
+        const regex = new RegExp(pattern, "g");
+        const searchText = document.getElementById("incoming").value;
+        let highlightedResult = "<pre>";
+        let startPosition = 0;
+        let endPosition = 0;
+        // Find each match
+        const matches = searchText.matchAll(regex);
+        for (const match of matches) {
+          endPosition = match.index;
+          highlightedResult += searchText.slice(startPosition, endPosition);
+          highlightedResult += "<span class='found'>" + match[0] + "</span>";
+          startPosition = endPosition + match[0].length;
+        }
+        // Finish off the result
+        highlightedResult += searchText.slice(startPosition);
+        highlightedResult += "</pre>";
+        // Show the highlighted
+        document.getElementById("searchResult").innerHTML = highlightedResult;
+      };
+    </script>
+  </body>
 </html>

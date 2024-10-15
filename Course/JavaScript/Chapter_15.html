@@ -19,14 +19,11 @@
      <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="600">
-
   <!-- JavaScript for SVG Interaction -->
   <script type="text/ecmascript">
-    
       // Add an event listener to the SVG rectangle
       window.onload = function() {
         const square = document.getElementById('square');
-
         // Define an onclick event to change the square's fill color
         square.onclick = function() {
           const currentColor = this.getAttribute('fill');
@@ -37,13 +34,39 @@
           }
         };
       };
-  
   </script>
-
   <!-- SVG Rectangle (square) -->
   <rect id="square" width="400" height="400" fill="#ff0000" x="10" y="10" />
 </svg>
+<h1>Click the Square to Change Color and Shape</h1>
 
- 
+    <svg width="600" height="600">
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                const square = document.getElementById('shape');
+
+                // Onclick event handler to change the square color and shape
+                square.addEventListener('click', function () {
+                    const currentColor = this.getAttribute('fill');
+                    const currentRx = this.getAttribute('rx');
+
+                    // Change color
+                    this.setAttribute('fill', currentColor === '#ff0000' ? '#0000ff' : '#ff0000');
+
+                    // Change to rounded rectangle (circle) or back to square
+                    if (currentRx === '50') {
+                        this.setAttribute('rx', '0'); // Change to square
+                        this.setAttribute('width', '400'); // Restore width
+                        this.setAttribute('height', '400'); // Restore height
+                    } else {
+                        this.setAttribute('rx', '200'); // Change to circle
+                        this.setAttribute('width', '400'); // Maintain width
+                        this.setAttribute('height', '400'); // Maintain height
+                    }
+                });
+            });
+        </script>
+        <rect id="shape" width="400" height="400" fill="#33ff3c" x="10" y="10" />
+    </svg>
 </body>
 </html>

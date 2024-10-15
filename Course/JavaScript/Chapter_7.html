@@ -1,162 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 7</title>
-    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
-    <link rel="stylesheet" href="jsStyle.css">
-</head>
-<body> 
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png" />
+    <link rel="stylesheet" href="jsStyle.css" />
+  </head>
+  <body>
     <!-- Back button Start -->
-    <fieldset><marquee  >Chapter 07</marquee></fieldset>
+    <fieldset><marquee>Chapter 07</marquee></fieldset>
     <div>
-        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+      <a href="jsindex.html"
+        ><img src="../../images/Back.png" alt="Back_Image"
+      /></a>
     </div>
     <!-- Back button End -->
     <!-- 7.1 Checking if an Object Is a Certain Type -->
-     <h3>7.1 Checking if an Object Is a Certain Type</h3>
-     <script>
-        console.log("string =>", Object.prototype.toString.call("string"));
-        console.log("array =>", Object.prototype.toString.call([1]));
-        console.log("date =>", Object.prototype.toString.call(new Date()));
-        console.log("object =>", Object.prototype.toString.call({ Tsp: "Ussl" }));   
+    <h3>7.1 Checking if an Object Is a Certain Type</h3>
+    <script>
+      console.log("string =>", Object.prototype.toString.call("string"));
+      console.log("array =>", Object.prototype.toString.call([1]));
+      console.log("date =>", Object.prototype.toString.call(new Date()));
+      console.log("object =>", Object.prototype.toString.call({ Tsp: "Ussl" }));
     </script>
-<!-- 7.2 Using an Object Literal to Bundle Data -->
- <h3>7.2 Using an Object Literal to Bundle Data</h3>
- <script>
-    const employee = {
+    <!-- 7.2 Using an Object Literal to Bundle Data -->
+    <h3>7.2 Using an Object Literal to Bundle Data</h3>
+    <script>
+      const employee = {
         employeeId: 402,
-        firstName: 'Lisa',
-        lastName: 'Stanecki',
-        birthPlace: { country: 'Canada', city: 'Toronto' }
-    };
-    console.log(employee.birthPlace.country);  // 'Canada'    
-    console.log(employee.birthPlace.city);  // 'Toronto'
-</script>
-<!-- 7.3 Checking If an Object Has a Property -->
- <h3>7.3 Checking If an Object Has a Property
-</h3>
-<script>
-    const address = {
-        country: 'Australia',
-        city: 'Sydney',
-        streetNum: '412',
-        streetName: 'Worcestire Blvd'
-    };
-    console.log(address.hasOwnProperty('country'));  // true
-    console.log(address.hasOwnProperty('zipCode'));  // false
-</script>
-<!-- 7.4 Iterating Over All the Properties of an Object -->
- <h3>7.4 Iterating Over All the Properties of an Object</h3>
+        firstName: "Lisa",
+        lastName: "Stanecki",
+        birthPlace: { country: "Canada", city: "Toronto" },
+      };
+      console.log(employee.birthPlace.country); // 'Canada'
+      console.log(employee.birthPlace.city); // 'Toronto'
+    </script>
+    <!-- 7.3 Checking If an Object Has a Property -->
+    <h3>7.3 Checking If an Object Has a Property</h3>
+    <script>
+      const address = {
+        country: "Australia",
+        city: "Sydney",
+        streetNum: "412",
+        streetName: "Worcestire Blvd",
+      };
+      console.log(address.hasOwnProperty("country")); // true
+      console.log(address.hasOwnProperty("zipCode")); // false
+    </script>
+    <!-- 7.4 Iterating Over All the Properties of an Object -->
+    <h3>7.4 Iterating Over All the Properties of an Object</h3>
 
- <!-- 7.5 Testing for an Empty Object -->
-  <h3>7.5 Testing for an Empty Object</h3>
-
-  <!-- 7.6 Merging the Properties of Two Objects -->
-   <h3>7.6 Merging the Properties of Two Objects</h3>
-   <script>
-    const addressName = {
-        country: 'Australia', city: 'Sydney', streetNum: '412',
-        streetName: 'Worcestire Blvd'
-    };
-    const customer = {
-        firstName: 'Lisa', lastName: 'Stanecki'
-    };
-    const customerWithAddress = { ...customer, ...addressName };
-    console.log(customerWithAddress);
-    // The customerWithAddress now has all six properties
-</script>
-<!-- 7.7 Customizing the Way a Property Is Defined -->
- <h3>7.7 Customizing the Way a Property Is Defined</h3>
-
-
-
-
-
- <!-- 7.8 Preventing Any Changes to an Object -->
-  <h3>7.8 Preventing Any Changes to an Object</h3>
-
-
-  <!-- 7.9 Intercepting and Changing Actions on an Object with a Proxy -->
-   <h3>7.9 Intercepting and Changing Actions on an Object
-    with a Proxy</h3>
-
-<!-- 7.10 Cloning an Object -->
- <h3>7.10 Cloning an Object</h3>
- <script>
-    const animal = {
-        name: 'Red Fox', class: 'Mammalia', order: 'Carnivora',
-        family: 'Canidae', genus: 'Vulpes', species: 'Vulpes vulpes'
-    };
-    const animalCopy = { ...animal };
-    console.log(animalCopy.species);  // 'Vulpes vulpes'
-</script>
-<!-- 7.11 Making a Deep Copy of an Object -->
- <h3>7.11 Making a Deep Copy of an Object</h3>
- <script>
-    const student = {
-        firstName: 'Tazie', lastName: 'Yang',
-        testScores: [78, 88, 94, 91, 88, 96]
-    };
-    function cloneStudent(student) {
+    <!-- 7.5 Testing for an Empty Object -->
+    <h3>7.5 Testing for an Empty Object</h3>
+    <!-- 7.6 Merging the Properties of Two Objects -->
+    <h3>7.6 Merging the Properties of Two Objects</h3>
+    <script>
+      const addressName = {
+        country: "Australia",
+        city: "Sydney",
+        streetNum: "412",
+        streetName: "Worcestire Blvd",
+      };
+      const customer = {
+        firstName: "Lisa",
+        lastName: "Stanecki",
+      };
+      const customerWithAddress = { ...customer, ...addressName };
+      console.log(customerWithAddress);
+      // The customerWithAddress now has all six properties
+    </script>
+    <!-- 7.7 Customizing the Way a Property Is Defined -->
+    <h3>7.7 Customizing the Way a Property Is Defined</h3>
+    <!-- 7.8 Preventing Any Changes to an Object -->
+    <h3>7.8 Preventing Any Changes to an Object</h3>
+    <!-- 7.9 Intercepting and Changing Actions on an Object with a Proxy -->
+    <h3>7.9 Intercepting and Changing Actions on an Object with a Proxy</h3>
+    <!-- 7.10 Cloning an Object -->
+    <h3>7.10 Cloning an Object</h3>
+    <script>
+      const animal = {
+        name: "Red Fox",
+        class: "Mammalia",
+        order: "Carnivora",
+        family: "Canidae",
+        genus: "Vulpes",
+        species: "Vulpes vulpes",
+      };
+      const animalCopy = { ...animal };
+      console.log(animalCopy.species); // 'Vulpes vulpes'
+    </script>
+    <!-- 7.11 Making a Deep Copy of an Object -->
+    <h3>7.11 Making a Deep Copy of an Object</h3>
+    <script>
+      const student = {
+        firstName: "Tazie",
+        lastName: "Yang",
+        testScores: [78, 88, 94, 91, 88, 96],
+      };
+      function cloneStudent(student) {
         // Start with a shallow copy
         const studentCopy = { ...student };
         // Now duplicate the array (by expanding it with spread)
         studentCopy.testScores = [...studentCopy.testScores];
         return studentCopy;
-    }
-    // Create a truly independent student copy
-    const studentCopy = cloneStudent(student);
-    // Verify the arrays are separate
-    studentCopy.testScores[0] = 56;
-    console.log(student.testScores[0]);
-    // 78
-    console.log(studentCopy.testScores[0]);  // 56
-</script>
-<!-- 7.12 Creating Absolutely Unique Object Property Key -->
- <h3>7.12 Creating Absolutely Unique Object Property Key</h3>
- <script>
-    const newObj = {};
-    // Set a unique property that will never clash with anything else
-    const uniqueId = Symbol();
-    newObj[uniqueId] = 'No two alike';
-    // Set another one
-    const anotherUniqueId = Symbol();
-    newObj[anotherUniqueId] = 'This will not clash, either';
-    console.log(newObj);
-</script>
-<!-- 7.13 Creating Enums with Symbol -->
- <h3>7.13 Creating Enums with Symbol
-</h3>
-<script>
-    // Create three constants to use as an enum
-    const TrafficLight = {
-        Green: Symbol('green'),
-        Red: Symbol('red'),
-        Yellow: Symbol('yellow')
-    }
-    // This function uses the light enum
-    function switchLight(newLight) {
+      }
+      // Create a truly independent student copy
+      const studentCopy = cloneStudent(student);
+      // Verify the arrays are separate
+      studentCopy.testScores[0] = 56;
+      console.log(student.testScores[0]);
+      // 78
+      console.log(studentCopy.testScores[0]); // 56
+    </script>
+    <!-- 7.12 Creating Absolutely Unique Object Property Key -->
+    <h3>7.12 Creating Absolutely Unique Object Property Key</h3>
+    <script>
+      const newObj = {};
+      // Set a unique property that will never clash with anything else
+      const uniqueId = Symbol();
+      newObj[uniqueId] = "No two alike";
+      // Set another one
+      const anotherUniqueId = Symbol();
+      newObj[anotherUniqueId] = "This will not clash, either";
+      console.log(newObj);
+    </script>
+    <!-- 7.13 Creating Enums with Symbol -->
+    <h3>7.13 Creating Enums with Symbol</h3>
+    <script>
+      // Create three constants to use as an enum
+      const TrafficLight = {
+        Green: Symbol("green"),
+        Red: Symbol("red"),
+        Yellow: Symbol("yellow"),
+      };
+      // This function uses the light enum
+      function switchLight(newLight) {
         if (newLight === TrafficLight.Green) {
-            console.log('Turning light green');
-        }
-        else if (newLight === TrafficLight.Yellow) {
-            console.log('Get ready to stop');
-        }
-        else {
-            console.log('Turning light red');
+          console.log("Turning light green");
+        } else if (newLight === TrafficLight.Yellow) {
+          console.log("Get ready to stop");
+        } else {
+          console.log("Turning light red");
         }
         return newLight;
-    }
-    let light = TrafficLight.Green;
-    light = switchLight(TrafficLight.Yellow);
-    light = switchLight(TrafficLight.Red);
-    console.log(light);   // shows "Symbol('red')"
-</script>
-
-
-
-
-</body>
+      }
+      let light = TrafficLight.Green;
+      light = switchLight(TrafficLight.Yellow);
+      light = switchLight(TrafficLight.Red);
+      console.log(light); // shows "Symbol('red')"
+    </script>
+  </body>
 </html>

@@ -1,113 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 5</title>
-    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png">
-    <link rel="stylesheet" href="jsStyle.css">
-</head>
-<body>
+    <link rel="icon" type="image/x-icon" href="../../images/isdb-bisew.png" />
+    <link rel="stylesheet" href="jsStyle.css" />
+  </head>
+  <body>
     <!-- Back button Start -->
-    <fieldset><marquee  >Chapter 05</marquee></fieldset>
+    <fieldset><marquee>Chapter 05</marquee></fieldset>
     <div>
-        <a href="jsindex.html"><img src="../../images/Back.png" alt="Back_Image"></a>
+      <a href="jsindex.html"
+        ><img src="../../images/Back.png" alt="Back_Image"
+      /></a>
     </div>
     <!-- Back button End -->
     <!-- 5.1 Checking If an Object Is an Array -->
-   <h3>5.1 Checking If an Object Is an Array</h3>
-   <script>
-    const Names = ['Firefox', 'Edge', 'Chrome', 'IE', 'Safari'];
-    if (Array.isArray(Names)) {
-    console.log("Array: ",Names);
-    }
-   </script>
-   <!-- 5.2 Iterating Over All the Elements in an Array -->
-<h3>5.2 Iterating Over All the Elements in an Array</h3>
-<script>
-    const animals = ['elephant', 'tiger', 'lion', 'zebra', 'cat', 'dog', 'rabbit'];
-    for (const animal of animals) {
-        console.log("AnimalType: ",animal);
-    }
-    
-    for (let i = 0; i < animals.length; ++i) {
-    console.log("Type: ",animals[i]);
-    }
-//     Change every array element map() Recipe 5.17
-// See if all elements meet a specic condition every() Recipe 5.19
-// See if at least one element meets a specic condition some() Recipe 5.19
-// Find array elements matching your criteria filter() Recipe 5.9
-// Reorder an array sort() Recipe 5.16
-// Use all the values of an array in one calculation reduce() Recipe 5.18
-</script>
-<!-- 5.3 Checking If Two Arrays Are Equal -->
-<h3>5.3 Checking If Two Arrays Are Equal</h3>
-<script>
-    const fruitNamesA = ['apple', 'kumquat', 'grapefruit', 'kiwi'];
-    const fruitNamesB = ['apple', 'kumquat', 'grapefruit', 'kiwi'];
-    const fruitNamesC = ['avocado', 'squash', 'red pepper', 'cucumber'];
-    console.log(areArraysEqual(fruitNamesA, fruitNamesB)); // true
-    console.log(areArraysEqual(fruitNamesA, fruitNamesC)); // false
-    function areArraysEqual(arrayA, arrayB) {
-    if (!Array.isArray(arrayA) || !Array.isArray(arrayB)) {
-    // These objects are null, undeclared, or non-array objects
-        return false;
-    }
-    else if (arrayA === arrayB) {
-    // Shortcut: they're two references pointing to the same array
-    return true;
-    }
-    else if (arrayA.length !== arrayB.length) {
-    // They can't match if they have a different item count
-    return false;
-    }
-    else {
-    // Time to look closer at each item
-    for (let i = 0; i < arrayA.length; ++i) {
-    // We require items to have the same content and be the same type,
-    // but you could use loosely typed equality depending on your task
-    if (arrayA[i] !== arrayB[i]) return false;
-    }
-    return true;
-    }
-    }
-</script>
-<!-- 5.4 Breaking Down an Array into Separate Variables -->
-<h3>5.4 Breaking Down an Array into Separate Variables</h3>
-<script>
-    const stateValues = [254, 58, 36, 36, 0, 14];
-    const [arizona, missouri, idaho, nebraska, texas, minnesota] = stateValues;
-    console.log(missouri); // 58
-</script>
-<!-- 5.5 Passing an Array to a Function That Expects a List of Values -->
-<h3>5.5 Passing an Array to a Function That Expects a List of Values</h3>
-<script>
-    const numbers = [8, 42, 5, 304, 1, 13];
-    // This syntax is not allowed. The result is NaN.
-    const maximumFail = Math.max(numbers);
-    // But this works, thanks to the spread operator. (The answer is 304.)
-    const maximum = Math.max(...numbers);
-    console.log(maximumFail);
-    console.log("Max Number: ",maximum);
-</script>
-<!-- 5.6 Cloning an Array -->
-<h3>5.6 Cloning an Array</h3>
-<script>
-    const number = [5, 42, 58, 304, 1, 13];
-    const numbersCopy = [...number];
-    console.log("Cloning an Array: ",numbersCopy);
-   //use slice method
-    const numberCopy = number.slice();
-    console.log("Cloning an Array: ",numberCopy);
-    const objectsOriginal = [{name: 'Arafat', age: 25}, {name: 'Patrick', age: 23}];
-    const objectsCopy = [...objectsOriginal];
-    console.log(objectsCopy);
-    // Change one of the people objects in objectsCopy
-    objectsCopy[0].age = 25;
-    // Investigate the same object in objectsOriginal
-    console.log("Age: ",objectsOriginal[0].age); // 25
-</script>
-<!-- 5.7 Merging Two Arrays -->
-<h3>5.7 Merging Two Arrays</h3>
-</body>
+    <h3>5.1 Checking If an Object Is an Array</h3>
+    <script>
+      const Names = ["Firefox", "Edge", "Chrome", "IE", "Safari"];
+      if (Array.isArray(Names)) {
+        console.log("Array: ", Names);
+      }
+    </script>
+    <!-- 5.2 Iterating Over All the Elements in an Array -->
+    <h3>5.2 Iterating Over All the Elements in an Array</h3>
+    <script>
+      const animals = [
+        "elephant",
+        "tiger",
+        "lion",
+        "zebra",
+        "cat",
+        "dog",
+        "rabbit",
+      ];
+      for (const animal of animals) {
+        console.log("AnimalType: ", animal);
+      }
+
+      for (let i = 0; i < animals.length; ++i) {
+        console.log("Type: ", animals[i]);
+      }
+    </script>
+    <!-- 5.3 Checking If Two Arrays Are Equal -->
+    <h3>5.3 Checking If Two Arrays Are Equal</h3>
+    <script>
+      const fruitNamesA = ["apple", "kumquat", "grapefruit", "kiwi"];
+      const fruitNamesB = ["apple", "kumquat", "grapefruit", "kiwi"];
+      const fruitNamesC = ["avocado", "squash", "red pepper", "cucumber"];
+      console.log(areArraysEqual(fruitNamesA, fruitNamesB)); // true
+      console.log(areArraysEqual(fruitNamesA, fruitNamesC)); // false
+      function areArraysEqual(arrayA, arrayB) {
+        if (!Array.isArray(arrayA) || !Array.isArray(arrayB)) {
+          // These objects are null, undeclared, or non-array objects
+          return false;
+        } else if (arrayA === arrayB) {
+          // Shortcut: they're two references pointing to the same array
+          return true;
+        } else if (arrayA.length !== arrayB.length) {
+          // They can't match if they have a different item count
+          return false;
+        } else {
+          // Time to look closer at each item
+          for (let i = 0; i < arrayA.length; ++i) {
+            // We require items to have the same content and be the same type,
+            // but you could use loosely typed equality depending on your task
+            if (arrayA[i] !== arrayB[i]) return false;
+          }
+          return true;
+        }
+      }
+    </script>
+    <!-- 5.4 Breaking Down an Array into Separate Variables -->
+    <h3>5.4 Breaking Down an Array into Separate Variables</h3>
+    <script>
+      const stateValues = [254, 58, 36, 36, 0, 14];
+      const [arizona, missouri, idaho, nebraska, texas, minnesota] =
+        stateValues;
+      console.log(missouri); // 58
+    </script>
+    <!-- 5.5 Passing an Array to a Function That Expects a List of Values -->
+    <h3>5.5 Passing an Array to a Function That Expects a List of Values</h3>
+    <script>
+      const numbers = [8, 42, 5, 304, 1, 13];
+      const maximumFail = Math.max(numbers);
+      const maximum = Math.max(...numbers);
+      console.log(maximumFail);
+      console.log("Max Number: ", maximum);
+    </script>
+    <!-- 5.6 Cloning an Array -->
+    <h3>5.6 Cloning an Array</h3>
+    <script>
+      const number = [5, 42, 58, 304, 1, 13];
+      const numbersCopy = [...number];
+      console.log("Cloning an Array: ", numbersCopy);
+      //use slice method
+      const numberCopy = number.slice();
+      console.log("Cloning an Array: ", numberCopy);
+      const objectsOriginal = [
+        { name: "Arafat", age: 25 },
+        { name: "Patrick", age: 23 },
+      ];
+      const objectsCopy = [...objectsOriginal];
+      console.log(objectsCopy);
+      // Change one of the people objects in objectsCopy
+      objectsCopy[0].age = 25;
+      // Investigate the same object in objectsOriginal
+      console.log("Age: ", objectsOriginal[0].age); // 25
+    </script>
+    <!-- 5.7 Merging Two Arrays -->
+    <h3>5.7 Merging Two Arrays</h3>
+  </body>
 </html>
